@@ -1,0 +1,5 @@
+Qt登录注册界面连接数据库实现
+https://blog.csdn.net/ac_blood/article/details/81363788
+
+QT 简单的QT用户登录界面
+https://blog.csdn.net/nanfeibuyi/article/details/79959043
