@@ -6,55 +6,44 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>1000</width>
+    <height>700</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralwidget">
-   <widget class="QStackedWidget" name="stackedWidget">
-    <property name="geometry">
-     <rect>
-      <x>210</x>
-      <y>80</y>
-      <width>291</width>
-      <height>201</height>
-     </rect>
-    </property>
-    <property name="currentIndex">
-     <number>1</number>
-    </property>
-    <widget class="QWidget" name="page"/>
-    <widget class="QWidget" name="page_2"/>
-   </widget>
-  </widget>
+  <widget class="QWidget" name="centralwidget"/>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>1000</width>
      <height>22</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menu">
+   <widget class="QMenu" name="future_a">
     <property name="title">
      <string>期货做市</string>
     </property>
-    <addaction name="actionasdf"/>
-    <addaction name="actionzss"/>
-    <addaction name="actiondss"/>
-    <addaction name="actionzjs"/>
-    <addaction name="actionnjs"/>
+    <addaction name="actionsqs"/>
+    <addaction name="actionzss_2"/>
+    <addaction name="actiondss_2"/>
+    <addaction name="actionzjs_2"/>
+    <addaction name="actionnjs_2"/>
    </widget>
-   <widget class="QMenu" name="menu_2">
+   <widget class="QMenu" name="option_a">
     <property name="title">
      <string>期权做市</string>
     </property>
+    <addaction name="actionsqs_2"/>
+    <addaction name="actionzss_3"/>
+    <addaction name="actionds"/>
+    <addaction name="actionzj"/>
+    <addaction name="actionnjs_3"/>
    </widget>
-   <widget class="QMenu" name="menu_3">
+   <widget class="QMenu" name="system_a">
     <property name="title">
      <string>系统设置</string>
     </property>
@@ -65,16 +54,11 @@
     <addaction name="actionfksz"/>
     <addaction name="actionmmxg"/>
    </widget>
-   <addaction name="menu"/>
-   <addaction name="menu_2"/>
-   <addaction name="menu_3"/>
+   <addaction name="future_a"/>
+   <addaction name="option_a"/>
+   <addaction name="system_a"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionasdf">
-   <property name="text">
-    <string>上交所</string>
-   </property>
-  </action>
   <action name="actionzss">
    <property name="text">
     <string>郑商所</string>
@@ -123,6 +107,86 @@
   <action name="actionmmxg">
    <property name="text">
     <string>密码修改</string>
+   </property>
+  </action>
+  <action name="actiontong">
+   <property name="text">
+    <string>铜</string>
+   </property>
+  </action>
+  <action name="actionlv">
+   <property name="text">
+    <string>铝</string>
+   </property>
+  </action>
+  <action name="actionxin">
+   <property name="text">
+    <string>锌</string>
+   </property>
+  </action>
+  <action name="actionqina">
+   <property name="text">
+    <string>铅</string>
+   </property>
+  </action>
+  <action name="actionnie">
+   <property name="text">
+    <string>镍</string>
+   </property>
+  </action>
+  <action name="actionxi">
+   <property name="text">
+    <string>锡</string>
+   </property>
+  </action>
+  <action name="actionsqs">
+   <property name="text">
+    <string>上期所</string>
+   </property>
+  </action>
+  <action name="actionsqs_2">
+   <property name="text">
+    <string>上期所</string>
+   </property>
+  </action>
+  <action name="actionzss_2">
+   <property name="text">
+    <string>郑商所</string>
+   </property>
+  </action>
+  <action name="actiondss_2">
+   <property name="text">
+    <string>大商所</string>
+   </property>
+  </action>
+  <action name="actionzjs_2">
+   <property name="text">
+    <string>中金所</string>
+   </property>
+  </action>
+  <action name="actionnjs_2">
+   <property name="text">
+    <string>能交所</string>
+   </property>
+  </action>
+  <action name="actionzss_3">
+   <property name="text">
+    <string>郑商所</string>
+   </property>
+  </action>
+  <action name="actionds">
+   <property name="text">
+    <string>大商所</string>
+   </property>
+  </action>
+  <action name="actionzj">
+   <property name="text">
+    <string>中金所</string>
+   </property>
+  </action>
+  <action name="actionnjs_3">
+   <property name="text">
+    <string>能交所</string>
    </property>
   </action>
  </widget>
