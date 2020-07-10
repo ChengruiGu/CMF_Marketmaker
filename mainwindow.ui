@@ -27,20 +27,153 @@
     <property name="title">
      <string>期货做市</string>
     </property>
-    <addaction name="actionsqs"/>
-    <addaction name="actionzss_2"/>
-    <addaction name="actiondss_2"/>
-    <addaction name="actionzjs_2"/>
-    <addaction name="actionnjs_2"/>
+    <widget class="QMenu" name="menu">
+     <property name="title">
+      <string>上期所</string>
+     </property>
+     <addaction name="actiontong_2"/>
+     <addaction name="actionlv_2"/>
+     <addaction name="actionxi_2"/>
+     <addaction name="actionqian"/>
+     <addaction name="actionnie_2"/>
+     <addaction name="actionxin_2"/>
+     <addaction name="actionjin"/>
+     <addaction name="actionyin"/>
+     <addaction name="actionluowen"/>
+     <addaction name="actionxiancai"/>
+     <addaction name="actionrejuan"/>
+     <addaction name="actionbuxiugang"/>
+     <addaction name="separator"/>
+     <addaction name="actionyuanyou"/>
+     <addaction name="actiondiliu"/>
+     <addaction name="actionranliaoyou"/>
+     <addaction name="actionliqing"/>
+     <addaction name="actiontianjiao"/>
+     <addaction name="action20hao"/>
+     <addaction name="actionzhijiang"/>
+    </widget>
+    <widget class="QMenu" name="menu_2">
+     <property name="title">
+      <string>郑商所</string>
+     </property>
+     <addaction name="actionbaitang"/>
+     <addaction name="actionmianhua"/>
+     <addaction name="actionpumai"/>
+     <addaction name="actionqiangmai"/>
+     <addaction name="actionzaoxiandao"/>
+     <addaction name="actionwanxiandao"/>
+     <addaction name="actionjindao"/>
+     <addaction name="actioncaizipo"/>
+     <addaction name="actionyoucaizi"/>
+     <addaction name="actioncaiziyou"/>
+     <addaction name="actionpiguo"/>
+     <addaction name="actionmiansha"/>
+     <addaction name="actionhongzao"/>
+     <addaction name="separator"/>
+     <addaction name="actiondonglimei"/>
+     <addaction name="actionPTA"/>
+     <addaction name="actionjiachun"/>
+     <addaction name="actionboli"/>
+     <addaction name="actionguitie"/>
+     <addaction name="actionguimeng"/>
+     <addaction name="actionniaosu"/>
+     <addaction name="actionchunjian"/>
+    </widget>
+    <widget class="QMenu" name="menu_3">
+     <property name="title">
+      <string>大商所</string>
+     </property>
+     <addaction name="actionyumi"/>
+     <addaction name="actionyumidianfen"/>
+     <addaction name="actionhuangdaou1"/>
+     <addaction name="actionhuangdadou2"/>
+     <addaction name="actiondoupo"/>
+     <addaction name="actiondouyou"/>
+     <addaction name="actionzonglvyou"/>
+     <addaction name="actionxianweiban"/>
+     <addaction name="actionjiaoheban"/>
+     <addaction name="actionjidan"/>
+     <addaction name="actionjingmi"/>
+     <addaction name="separator"/>
+     <addaction name="actionjyx"/>
+     <addaction name="actionjlyx"/>
+     <addaction name="actionjbx"/>
+     <addaction name="actionjt"/>
+     <addaction name="actionjm"/>
+     <addaction name="actiontks"/>
+     <addaction name="actionyec"/>
+     <addaction name="actionbyx"/>
+     <addaction name="actionyhsyq"/>
+    </widget>
+    <widget class="QMenu" name="menu_4">
+     <property name="title">
+      <string>中金所</string>
+     </property>
+     <addaction name="actionif"/>
+     <addaction name="actionih"/>
+     <addaction name="actionic"/>
+     <addaction name="actiontf"/>
+     <addaction name="actiont"/>
+     <addaction name="actionts"/>
+    </widget>
+    <widget class="QMenu" name="menu_5">
+     <property name="title">
+      <string>能交所</string>
+     </property>
+     <addaction name="actionyuanyou_2"/>
+     <addaction name="action20jiao"/>
+     <addaction name="actiondiliuranliaoyou"/>
+    </widget>
+    <addaction name="menu"/>
+    <addaction name="menu_2"/>
+    <addaction name="menu_3"/>
+    <addaction name="menu_4"/>
+    <addaction name="menu_5"/>
    </widget>
    <widget class="QMenu" name="option_a">
     <property name="title">
      <string>期权做市</string>
     </property>
-    <addaction name="actionsqs_2"/>
-    <addaction name="actionzss_3"/>
-    <addaction name="actionds"/>
-    <addaction name="actionzj"/>
+    <widget class="QMenu" name="menu_6">
+     <property name="title">
+      <string>上期所</string>
+     </property>
+     <addaction name="actiontong_op"/>
+     <addaction name="actionhuangjin_op"/>
+     <addaction name="actiontianjiao_op"/>
+    </widget>
+    <widget class="QMenu" name="menu_7">
+     <property name="title">
+      <string>郑商所</string>
+     </property>
+     <addaction name="actionbaitang_op"/>
+     <addaction name="actionmianhua_op"/>
+     <addaction name="actionpta_op"/>
+     <addaction name="actionjiachun_op"/>
+     <addaction name="actioncaizipo_op"/>
+     <addaction name="actiondonglimei_op"/>
+    </widget>
+    <widget class="QMenu" name="menu_8">
+     <property name="title">
+      <string>大商所</string>
+     </property>
+     <addaction name="actiondoupo_op"/>
+     <addaction name="actionyumi_op"/>
+     <addaction name="actiontiekuangshi_op"/>
+     <addaction name="actionjuyixi_op"/>
+     <addaction name="actionjulvyixi_op"/>
+     <addaction name="actionjubingxi_op"/>
+    </widget>
+    <widget class="QMenu" name="menu_9">
+     <property name="title">
+      <string>中金所</string>
+     </property>
+     <addaction name="actionif_op"/>
+    </widget>
+    <addaction name="menu_6"/>
+    <addaction name="menu_7"/>
+    <addaction name="menu_8"/>
+    <addaction name="menu_9"/>
     <addaction name="actionnjs_3"/>
    </widget>
    <widget class="QMenu" name="system_a">
@@ -53,6 +186,7 @@
     <addaction name="actionzssz"/>
     <addaction name="actionfksz"/>
     <addaction name="actionmmxg"/>
+    <addaction name="actionjkzb"/>
    </widget>
    <addaction name="future_a"/>
    <addaction name="option_a"/>
@@ -139,54 +273,439 @@
     <string>锡</string>
    </property>
   </action>
-  <action name="actionsqs">
-   <property name="text">
-    <string>上期所</string>
-   </property>
-  </action>
-  <action name="actionsqs_2">
-   <property name="text">
-    <string>上期所</string>
-   </property>
-  </action>
-  <action name="actionzss_2">
-   <property name="text">
-    <string>郑商所</string>
-   </property>
-  </action>
-  <action name="actiondss_2">
-   <property name="text">
-    <string>大商所</string>
-   </property>
-  </action>
-  <action name="actionzjs_2">
-   <property name="text">
-    <string>中金所</string>
-   </property>
-  </action>
-  <action name="actionnjs_2">
-   <property name="text">
-    <string>能交所</string>
-   </property>
-  </action>
-  <action name="actionzss_3">
-   <property name="text">
-    <string>郑商所</string>
-   </property>
-  </action>
-  <action name="actionds">
-   <property name="text">
-    <string>大商所</string>
-   </property>
-  </action>
-  <action name="actionzj">
-   <property name="text">
-    <string>中金所</string>
-   </property>
-  </action>
   <action name="actionnjs_3">
    <property name="text">
     <string>能交所</string>
+   </property>
+  </action>
+  <action name="actionjkzb">
+   <property name="text">
+    <string>监控指标</string>
+   </property>
+  </action>
+  <action name="actiontong_2">
+   <property name="text">
+    <string>铜</string>
+   </property>
+  </action>
+  <action name="actionlv_2">
+   <property name="text">
+    <string>铝</string>
+   </property>
+  </action>
+  <action name="actionxi_2">
+   <property name="text">
+    <string>锡</string>
+   </property>
+  </action>
+  <action name="actionqian">
+   <property name="text">
+    <string>铅</string>
+   </property>
+  </action>
+  <action name="actionnie_2">
+   <property name="text">
+    <string>镍</string>
+   </property>
+  </action>
+  <action name="actionxin_2">
+   <property name="text">
+    <string>锌</string>
+   </property>
+  </action>
+  <action name="actionjin">
+   <property name="text">
+    <string>金</string>
+   </property>
+  </action>
+  <action name="actionyin">
+   <property name="text">
+    <string>银</string>
+   </property>
+  </action>
+  <action name="actionluowen">
+   <property name="text">
+    <string>螺纹</string>
+   </property>
+  </action>
+  <action name="actionxiancai">
+   <property name="text">
+    <string>线材</string>
+   </property>
+  </action>
+  <action name="actionrejuan">
+   <property name="text">
+    <string>热卷</string>
+   </property>
+  </action>
+  <action name="actionbuxiugang">
+   <property name="text">
+    <string>不锈钢</string>
+   </property>
+  </action>
+  <action name="actionyuanyou">
+   <property name="text">
+    <string>原油</string>
+   </property>
+  </action>
+  <action name="actiondiliu">
+   <property name="text">
+    <string>低硫燃料油</string>
+   </property>
+  </action>
+  <action name="actionranliaoyou">
+   <property name="text">
+    <string>燃料油</string>
+   </property>
+  </action>
+  <action name="actionliqing">
+   <property name="text">
+    <string>沥青</string>
+   </property>
+  </action>
+  <action name="actiontianjiao">
+   <property name="text">
+    <string>天然橡胶</string>
+   </property>
+  </action>
+  <action name="action20hao">
+   <property name="text">
+    <string>20号胶</string>
+   </property>
+  </action>
+  <action name="actionzhijiang">
+   <property name="text">
+    <string>纸浆</string>
+   </property>
+  </action>
+  <action name="actionbaitang">
+   <property name="text">
+    <string>白糖</string>
+   </property>
+  </action>
+  <action name="actionmianhua">
+   <property name="text">
+    <string>棉花</string>
+   </property>
+  </action>
+  <action name="actionpumai">
+   <property name="text">
+    <string>普麦</string>
+   </property>
+  </action>
+  <action name="actionqiangmai">
+   <property name="text">
+    <string>强麦</string>
+   </property>
+  </action>
+  <action name="actionzaoxiandao">
+   <property name="text">
+    <string>早籼稻</string>
+   </property>
+  </action>
+  <action name="actionwanxiandao">
+   <property name="text">
+    <string>晚籼稻</string>
+   </property>
+  </action>
+  <action name="actionjindao">
+   <property name="text">
+    <string>粳稻</string>
+   </property>
+  </action>
+  <action name="actioncaizipo">
+   <property name="text">
+    <string>菜籽粕</string>
+   </property>
+  </action>
+  <action name="actionyoucaizi">
+   <property name="text">
+    <string>油菜籽</string>
+   </property>
+  </action>
+  <action name="actioncaiziyou">
+   <property name="text">
+    <string>菜籽油</string>
+   </property>
+  </action>
+  <action name="actionpiguo">
+   <property name="text">
+    <string>苹果</string>
+   </property>
+  </action>
+  <action name="actionmiansha">
+   <property name="text">
+    <string>棉纱</string>
+   </property>
+  </action>
+  <action name="actionhongzao">
+   <property name="text">
+    <string>红枣</string>
+   </property>
+  </action>
+  <action name="actiondonglimei">
+   <property name="text">
+    <string>动力煤</string>
+   </property>
+  </action>
+  <action name="actionPTA">
+   <property name="text">
+    <string>PTA</string>
+   </property>
+  </action>
+  <action name="actionjiachun">
+   <property name="text">
+    <string>甲醇</string>
+   </property>
+  </action>
+  <action name="actionboli">
+   <property name="text">
+    <string>玻璃</string>
+   </property>
+  </action>
+  <action name="actionguitie">
+   <property name="text">
+    <string>硅铁</string>
+   </property>
+  </action>
+  <action name="actionguimeng">
+   <property name="text">
+    <string>硅锰</string>
+   </property>
+  </action>
+  <action name="actionniaosu">
+   <property name="text">
+    <string>尿素</string>
+   </property>
+  </action>
+  <action name="actionchunjian">
+   <property name="text">
+    <string>纯碱</string>
+   </property>
+  </action>
+  <action name="actionyumi">
+   <property name="text">
+    <string>玉米</string>
+   </property>
+  </action>
+  <action name="actionyumidianfen">
+   <property name="text">
+    <string>玉米淀粉</string>
+   </property>
+  </action>
+  <action name="actionhuangdaou1">
+   <property name="text">
+    <string>黄大豆1号</string>
+   </property>
+  </action>
+  <action name="actionhuangdadou2">
+   <property name="text">
+    <string>黄大豆2号</string>
+   </property>
+  </action>
+  <action name="actiondoupo">
+   <property name="text">
+    <string>豆粕</string>
+   </property>
+  </action>
+  <action name="actiondouyou">
+   <property name="text">
+    <string>豆油</string>
+   </property>
+  </action>
+  <action name="actionzonglvyou">
+   <property name="text">
+    <string>棕榈油</string>
+   </property>
+  </action>
+  <action name="actionxianweiban">
+   <property name="text">
+    <string>纤维板</string>
+   </property>
+  </action>
+  <action name="actionjiaoheban">
+   <property name="text">
+    <string>胶合板</string>
+   </property>
+  </action>
+  <action name="actionjidan">
+   <property name="text">
+    <string>鸡蛋</string>
+   </property>
+  </action>
+  <action name="actionjingmi">
+   <property name="text">
+    <string>粳米</string>
+   </property>
+  </action>
+  <action name="actionjyx">
+   <property name="text">
+    <string>聚乙烯</string>
+   </property>
+  </action>
+  <action name="actionjlyx">
+   <property name="text">
+    <string>聚氯乙烯</string>
+   </property>
+  </action>
+  <action name="actionjbx">
+   <property name="text">
+    <string>聚丙烯</string>
+   </property>
+  </action>
+  <action name="actionjt">
+   <property name="text">
+    <string>焦炭</string>
+   </property>
+  </action>
+  <action name="actionjm">
+   <property name="text">
+    <string>焦煤</string>
+   </property>
+  </action>
+  <action name="actiontks">
+   <property name="text">
+    <string>铁矿石</string>
+   </property>
+  </action>
+  <action name="actionyec">
+   <property name="text">
+    <string>乙二醇</string>
+   </property>
+  </action>
+  <action name="actionbyx">
+   <property name="text">
+    <string>苯乙烯</string>
+   </property>
+  </action>
+  <action name="actionyhsyq">
+   <property name="text">
+    <string>液化石油气</string>
+   </property>
+  </action>
+  <action name="actionif">
+   <property name="text">
+    <string>沪深300</string>
+   </property>
+  </action>
+  <action name="actionih">
+   <property name="text">
+    <string>上证50</string>
+   </property>
+  </action>
+  <action name="actionic">
+   <property name="text">
+    <string>中证500</string>
+   </property>
+  </action>
+  <action name="actiontf">
+   <property name="text">
+    <string>5年期国债</string>
+   </property>
+  </action>
+  <action name="actiont">
+   <property name="text">
+    <string>10年期国债</string>
+   </property>
+  </action>
+  <action name="actionts">
+   <property name="text">
+    <string>2年期国债</string>
+   </property>
+  </action>
+  <action name="actionyuanyou_2">
+   <property name="text">
+    <string>原油</string>
+   </property>
+  </action>
+  <action name="action20jiao">
+   <property name="text">
+    <string>20号胶</string>
+   </property>
+  </action>
+  <action name="actiondiliuranliaoyou">
+   <property name="text">
+    <string>低硫燃料油</string>
+   </property>
+  </action>
+  <action name="actiontong_op">
+   <property name="text">
+    <string>铜</string>
+   </property>
+  </action>
+  <action name="actionhuangjin_op">
+   <property name="text">
+    <string>黄金</string>
+   </property>
+  </action>
+  <action name="actiontianjiao_op">
+   <property name="text">
+    <string>天胶</string>
+   </property>
+  </action>
+  <action name="actionbaitang_op">
+   <property name="text">
+    <string>白糖</string>
+   </property>
+  </action>
+  <action name="actionmianhua_op">
+   <property name="text">
+    <string>棉花</string>
+   </property>
+  </action>
+  <action name="actionpta_op">
+   <property name="text">
+    <string>PTA</string>
+   </property>
+  </action>
+  <action name="actionjiachun_op">
+   <property name="text">
+    <string>甲醇</string>
+   </property>
+  </action>
+  <action name="actioncaizipo_op">
+   <property name="text">
+    <string>菜籽粕</string>
+   </property>
+  </action>
+  <action name="actiondonglimei_op">
+   <property name="text">
+    <string>动力煤</string>
+   </property>
+  </action>
+  <action name="actiondoupo_op">
+   <property name="text">
+    <string>豆粕</string>
+   </property>
+  </action>
+  <action name="actionyumi_op">
+   <property name="text">
+    <string>玉米</string>
+   </property>
+  </action>
+  <action name="actiontiekuangshi_op">
+   <property name="text">
+    <string>铁矿石</string>
+   </property>
+  </action>
+  <action name="actionjuyixi_op">
+   <property name="text">
+    <string>聚乙烯</string>
+   </property>
+  </action>
+  <action name="actionjulvyixi_op">
+   <property name="text">
+    <string>聚氯乙烯</string>
+   </property>
+  </action>
+  <action name="actionjubingxi_op">
+   <property name="text">
+    <string>聚丙烯</string>
+   </property>
+  </action>
+  <action name="actionif_op">
+   <property name="text">
+    <string>沪深300</string>
    </property>
   </action>
  </widget>

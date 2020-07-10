@@ -23,6 +23,11 @@ public slots:
     void setOptionPage();
     void createRole();
     void resetPwd();
+    void chooseProduct();
+    void setMm();
+    void riskControl();
+    void changePwd();
+    void riskParameter();
 
 private:
     Ui::MainWindow *ui;
