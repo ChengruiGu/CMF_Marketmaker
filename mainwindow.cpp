@@ -24,12 +24,24 @@ MainWindow::MainWindow(QWidget *parent)
 
     pagesWidget = new QStackedWidget;
     //pagesWidget->setWindowTitle("pagesWidget");
-    pagesWidget->addWidget(new mm_page);
+    future_page = new mm_page;
+    pagesWidget->addWidget(future_page);
     pagesWidget->addWidget(new mm_page2);
 
     setCentralWidget(pagesWidget);
 
     connect(this->ui->actiontong_2,&QAction::triggered,this,&MainWindow::setFuturePage);
+    connect(this->ui->actionlv_2,&QAction::triggered,this,&MainWindow::setFuturePage);
+    connect(this->ui->actionxi_2,&QAction::triggered,this,&MainWindow::setFuturePage);
+    connect(this->ui->actionnie_2,&QAction::triggered,this,&MainWindow::setFuturePage);
+    connect(this->ui->actionqian,&QAction::triggered,this,&MainWindow::setFuturePage);
+    connect(this->ui->actionjin,&QAction::triggered,this,&MainWindow::setFuturePage);
+    connect(this->ui->actionyin,&QAction::triggered,this,&MainWindow::setFuturePage);
+    connect(this->ui->actionluowen,&QAction::triggered,this,&MainWindow::setFuturePage);
+    connect(this->ui->actionxiancai,&QAction::triggered,this,&MainWindow::setFuturePage);
+    connect(this->ui->actionbuxiugang,&QAction::triggered,this,&MainWindow::setFuturePage);
+    connect(this->ui->actionrejuan,&QAction::triggered,this,&MainWindow::setFuturePage);
+
     connect(this->ui->actiontong_op,&QAction::triggered,this,&MainWindow::setOptionPage);
 
     connect(this->ui->actioncjyh,&QAction::triggered,this,&MainWindow::createRole);
@@ -49,6 +61,9 @@ MainWindow::~MainWindow()
 
 void MainWindow::setFuturePage(){
     pagesWidget->setCurrentIndex(0); //mm_page
+    QAction *a = qobject_cast<QAction*>(sender());
+    QString s = a->text();
+    future_page->setName(s);
 }
 
 void MainWindow::setOptionPage(){

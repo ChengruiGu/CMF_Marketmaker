@@ -6,14 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>697</width>
+    <width>717</width>
     <height>457</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_2">
+  <layout class="QVBoxLayout" name="verticalLayout_3">
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_10">
      <item>
@@ -220,10 +220,66 @@
            <string/>
           </property>
           <layout class="QGridLayout" name="gridLayout">
+           <item row="7" column="0">
+            <widget class="QLabel" name="label_9">
+             <property name="text">
+              <string>买一：</string>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="0">
+            <widget class="QLabel" name="label_26">
+             <property name="text">
+              <string>买四：</string>
+             </property>
+            </widget>
+           </item>
            <item row="0" column="0" colspan="2">
             <widget class="QLabel" name="label_6">
              <property name="text">
               <string>选择合约：</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="0">
+            <widget class="QLabel" name="label_13">
+             <property name="text">
+              <string>卖一：</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_30">
+             <property name="text">
+              <string>卖五：</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_7">
+             <property name="text">
+              <string>最新：</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="label_29">
+             <property name="text">
+              <string>卖四：</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="1">
+            <widget class="QLabel" name="label_14">
+             <property name="text">
+              <string>52950</string>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="0">
+            <widget class="QLabel" name="label_24">
+             <property name="text">
+              <string>买三：</string>
              </property>
             </widget>
            </item>
@@ -245,112 +301,241 @@
              </item>
             </layout>
            </item>
-           <item row="1" column="0">
-            <widget class="QLabel" name="label_7">
+           <item row="5" column="0">
+            <widget class="QLabel" name="label_25">
              <property name="text">
-              <string>现价：</string>
+              <string>卖二：</string>
+             </property>
+            </widget>
+           </item>
+           <item row="11" column="0">
+            <widget class="QLabel" name="label_28">
+             <property name="text">
+              <string>买五：</string>
              </property>
             </widget>
            </item>
            <item row="1" column="1" colspan="2">
             <widget class="QLabel" name="label_8">
              <property name="text">
-              <string>15439</string>
+              <string>52940</string>
              </property>
             </widget>
            </item>
-           <item row="1" column="3" colspan="2">
-            <spacer name="horizontalSpacer">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>190</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="2" column="0">
-            <widget class="QLabel" name="label_9">
-             <property name="text">
-              <string>买一：</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="1" colspan="2">
+           <item row="7" column="1" colspan="2">
             <widget class="QLabel" name="label_10">
              <property name="text">
-              <string>15433</string>
+              <string>52940</string>
              </property>
             </widget>
            </item>
-           <item row="2" column="3">
-            <spacer name="horizontalSpacer_5">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>136</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="2" column="4">
-            <widget class="QLabel" name="label_11">
+           <item row="4" column="0">
+            <widget class="QLabel" name="label_27">
              <property name="text">
-              <string>买一量：</string>
+              <string>卖三：</string>
              </property>
             </widget>
            </item>
-           <item row="2" column="5">
-            <widget class="QLabel" name="label_12">
+           <item row="8" column="0">
+            <widget class="QLabel" name="label_31">
              <property name="text">
-              <string>562</string>
+              <string>买二：</string>
              </property>
             </widget>
            </item>
-           <item row="3" column="0">
-            <widget class="QLabel" name="label_13">
+           <item row="5" column="1">
+            <widget class="QLabel" name="label_32">
              <property name="text">
-              <string>卖一：</string>
+              <string>52960</string>
              </property>
             </widget>
            </item>
-           <item row="3" column="1" colspan="2">
-            <widget class="QLabel" name="label_14">
+           <item row="4" column="1">
+            <widget class="QLabel" name="label_35">
              <property name="text">
-              <string>15498</string>
+              <string>52970</string>
              </property>
             </widget>
            </item>
-           <item row="3" column="3">
-            <spacer name="horizontalSpacer_6">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
+           <item row="3" column="1">
+            <widget class="QLabel" name="label_36">
+             <property name="text">
+              <string>52980</string>
              </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>136</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
+            </widget>
            </item>
-           <item row="3" column="4">
+           <item row="2" column="1">
+            <widget class="QLabel" name="label_37">
+             <property name="text">
+              <string>52990</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="1">
+            <widget class="QLabel" name="label_38">
+             <property name="text">
+              <string>52930</string>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="1">
+            <widget class="QLabel" name="label_39">
+             <property name="text">
+              <string>52920</string>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="1">
+            <widget class="QLabel" name="label_40">
+             <property name="text">
+              <string>52910</string>
+             </property>
+            </widget>
+           </item>
+           <item row="11" column="1">
+            <widget class="QLabel" name="label_41">
+             <property name="text">
+              <string>52900</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="3">
+            <widget class="QLabel" name="label_34">
+             <property name="text">
+              <string>卖一量：</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="3">
             <widget class="QLabel" name="label_15">
              <property name="text">
               <string>卖一量：</string>
              </property>
             </widget>
            </item>
-           <item row="3" column="5">
+           <item row="7" column="3">
+            <widget class="QLabel" name="label_11">
+             <property name="text">
+              <string>买一量：</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="4">
+            <widget class="QLabel" name="label_33">
+             <property name="text">
+              <string>86</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="4">
             <widget class="QLabel" name="label_16">
              <property name="text">
-              <string>328</string>
+              <string>78</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="4">
+            <widget class="QLabel" name="label_12">
+             <property name="text">
+              <string>66</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="3">
+            <widget class="QLabel" name="label_42">
+             <property name="text">
+              <string>卖三量：</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="3">
+            <widget class="QLabel" name="label_43">
+             <property name="text">
+              <string>卖四量：</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="3">
+            <widget class="QLabel" name="label_44">
+             <property name="text">
+              <string>卖五量：</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="3">
+            <widget class="QLabel" name="label_45">
+             <property name="text">
+              <string>买二量：</string>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="3">
+            <widget class="QLabel" name="label_46">
+             <property name="text">
+              <string>买三量：</string>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="3">
+            <widget class="QLabel" name="label_47">
+             <property name="text">
+              <string>买四量：</string>
+             </property>
+            </widget>
+           </item>
+           <item row="11" column="3">
+            <widget class="QLabel" name="label_48">
+             <property name="text">
+              <string>买五量：</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="4">
+            <widget class="QLabel" name="label_49">
+             <property name="text">
+              <string>35</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="4">
+            <widget class="QLabel" name="label_50">
+             <property name="text">
+              <string>12</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="4">
+            <widget class="QLabel" name="label_51">
+             <property name="text">
+              <string>45</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="4">
+            <widget class="QLabel" name="label_52">
+             <property name="text">
+              <string>53</string>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="4">
+            <widget class="QLabel" name="label_53">
+             <property name="text">
+              <string>55</string>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="4">
+            <widget class="QLabel" name="label_54">
+             <property name="text">
+              <string>40</string>
+             </property>
+            </widget>
+           </item>
+           <item row="11" column="4">
+            <widget class="QLabel" name="label_55">
+             <property name="text">
+              <string>28</string>
              </property>
             </widget>
            </item>
@@ -373,21 +558,53 @@
         <item>
          <widget class="QTextBrowser" name="textBrowser"/>
         </item>
-       </layout>
-      </widget>
-     </item>
-     <item>
-      <widget class="QGroupBox" name="statbox">
-       <property name="title">
-        <string>做市统计</string>
-       </property>
-       <layout class="QHBoxLayout" name="horizontalLayout_9">
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_8" stretch="">
-          <property name="spacing">
-           <number>6</number>
+         <widget class="QGroupBox" name="statbox">
+          <property name="title">
+           <string>做市统计</string>
           </property>
-         </layout>
+          <layout class="QVBoxLayout" name="verticalLayout_2">
+           <item>
+            <layout class="QFormLayout" name="formLayout">
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_17">
+               <property name="text">
+                <string>持仓量：</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLabel" name="label_22">
+               <property name="text">
+                <string>76</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_21">
+               <property name="text">
+                <string>成交量：</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLabel" name="label_23">
+               <property name="text">
+                <string>391</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_8">
+             <property name="spacing">
+              <number>6</number>
+             </property>
+            </layout>
+           </item>
+          </layout>
+         </widget>
         </item>
        </layout>
       </widget>

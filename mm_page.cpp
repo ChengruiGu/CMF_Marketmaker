@@ -19,13 +19,17 @@ mm_page::mm_page(QWidget *parent) :
 //    //ui->barhLayout_6->addWidget(statWidget);
 //    ui->topFormLayout->addWidget(statBox);
     //ui->statbox->setContentsMargins(1,1,1,1);
-    ui->horizontalLayout_9->setContentsMargins(1,1,1,1);
-    ui->horizontalLayout_9->addWidget(b);
-    ui->horizontalLayout_9->addWidget(b1);
+    ui->horizontalLayout_8->setContentsMargins(1,1,1,1);
+    ui->horizontalLayout_8->addWidget(b);
+    ui->horizontalLayout_8->addWidget(b1);
 
 }
 
 mm_page::~mm_page()
 {
     delete ui;
+}
+
+void mm_page::setName(QString s){
+    ui->label_18->setText(s);
 }

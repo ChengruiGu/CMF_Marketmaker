@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "mm_page.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -32,6 +33,7 @@ public slots:
 private:
     Ui::MainWindow *ui;
     QStackedWidget *pagesWidget;
+    mm_page *future_page;
 
 };
 #endif // MAINWINDOW_H
