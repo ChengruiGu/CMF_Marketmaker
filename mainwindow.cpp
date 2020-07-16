@@ -30,6 +30,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     setCentralWidget(pagesWidget);
 
+    //上期所
     connect(this->ui->actiontong_2,&QAction::triggered,this,&MainWindow::setFuturePage);
     connect(this->ui->actionlv_2,&QAction::triggered,this,&MainWindow::setFuturePage);
     connect(this->ui->actionxi_2,&QAction::triggered,this,&MainWindow::setFuturePage);
@@ -41,6 +42,30 @@ MainWindow::MainWindow(QWidget *parent)
     connect(this->ui->actionxiancai,&QAction::triggered,this,&MainWindow::setFuturePage);
     connect(this->ui->actionbuxiugang,&QAction::triggered,this,&MainWindow::setFuturePage);
     connect(this->ui->actionrejuan,&QAction::triggered,this,&MainWindow::setFuturePage);
+    connect(this->ui->actionyuanyou,&QAction::triggered,this,&MainWindow::setFuturePage);
+    connect(this->ui->actiondiliu,&QAction::triggered,this,&MainWindow::setFuturePage);
+    connect(this->ui->actionliqing,&QAction::triggered,this,&MainWindow::setFuturePage);
+    connect(this->ui->actiontianjiao,&QAction::triggered,this,&MainWindow::setFuturePage);
+    connect(this->ui->action20hao,&QAction::triggered,this,&MainWindow::setFuturePage);
+    connect(this->ui->actionzhijiang,&QAction::triggered,this,&MainWindow::setFuturePage);
+
+    //郑商所
+    connect(this->ui->actionbaitang,&QAction::triggered,this,&MainWindow::setFuturePage);
+    connect(this->ui->actionmianhua,&QAction::triggered,this,&MainWindow::setFuturePage);
+    connect(this->ui->actionpumai,&QAction::triggered,this,&MainWindow::setFuturePage);
+    connect(this->ui->actionqiangmai,&QAction::triggered,this,&MainWindow::setFuturePage);
+    connect(this->ui->actionzaoxiandao,&QAction::triggered,this,&MainWindow::setFuturePage);
+    connect(this->ui->actionwanxiandao,&QAction::triggered,this,&MainWindow::setFuturePage);
+    connect(this->ui->actionjindao,&QAction::triggered,this,&MainWindow::setFuturePage);
+    connect(this->ui->actioncaizipo,&QAction::triggered,this,&MainWindow::setFuturePage);
+    connect(this->ui->actionyoucaizi,&QAction::triggered,this,&MainWindow::setFuturePage);
+    connect(this->ui->actioncaiziyou,&QAction::triggered,this,&MainWindow::setFuturePage);
+    connect(this->ui->actionpiguo,&QAction::triggered,this,&MainWindow::setFuturePage);
+    connect(this->ui->actionmiansha,&QAction::triggered,this,&MainWindow::setFuturePage);
+    connect(this->ui->actionhongzao,&QAction::triggered,this,&MainWindow::setFuturePage);
+
+    //大商所
+
 
     connect(this->ui->actiontong_op,&QAction::triggered,this,&MainWindow::setOptionPage);
 
@@ -67,7 +92,10 @@ void MainWindow::setFuturePage(){
 }
 
 void MainWindow::setOptionPage(){
-    pagesWidget->setCurrentIndex(1);
+    pagesWidget->setCurrentIndex(0);
+    QAction *a = qobject_cast<QAction*>(sender());
+    QString s = a->text();
+    future_page->setName1(s);
 }
 
 void MainWindow::createRole(){

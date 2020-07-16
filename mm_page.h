@@ -15,6 +15,7 @@ public:
     explicit mm_page(QWidget *parent = nullptr);
     ~mm_page();
     void setName(QString s);
+    void setName1(QString s);
 
 private:
     Ui::mm_page *ui;

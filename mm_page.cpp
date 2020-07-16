@@ -32,4 +32,10 @@ mm_page::~mm_page()
 
 void mm_page::setName(QString s){
     ui->label_18->setText(s);
+    ui->label_56->setText("期货");
+}
+
+void mm_page::setName1(QString s){
+    ui->label_18->setText(s);
+    ui->label_56->setText("期权");
 }
