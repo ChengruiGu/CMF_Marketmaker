@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>258</width>
-    <height>181</height>
+    <width>300</width>
+    <height>156</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,12 +19,33 @@
      <item>
       <widget class="QLabel" name="label">
        <property name="text">
-        <string>用户ID：</string>
+        <string>选择用户名：</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="lineEdit"/>
+      <widget class="QComboBox" name="comboBox">
+       <item>
+        <property name="text">
+         <string>cg487</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>dl355</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>ch761</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>jq190</string>
+        </property>
+       </item>
+      </widget>
      </item>
     </layout>
    </item>
@@ -33,7 +54,7 @@
      <item>
       <widget class="QLabel" name="label_2">
        <property name="text">
-        <string>新密码：</string>
+        <string>重置密码为：</string>
        </property>
       </widget>
      </item>
@@ -47,7 +68,7 @@
      <item>
       <widget class="QLabel" name="label_3">
        <property name="text">
-        <string>确认新密码：</string>
+        <string>确认重置密码：</string>
        </property>
       </widget>
      </item>

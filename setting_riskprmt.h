@@ -15,6 +15,13 @@ public:
     explicit setting_riskprmt(QWidget *parent = nullptr);
     ~setting_riskprmt();
 
+private slots:
+    void on_pushButton_released();
+
+    void on_pushButton_2_released();
+
+    void on_pushButton_3_released();
+
 private:
     Ui::setting_riskprmt *ui;
 };

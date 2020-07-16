@@ -181,12 +181,12 @@
      <string>系统设置</string>
     </property>
     <addaction name="actioncjyh"/>
-    <addaction name="actionmmcz"/>
+    <addaction name="actionjsgl"/>
     <addaction name="actionpzsz"/>
     <addaction name="actionzssz"/>
     <addaction name="actionfksz"/>
-    <addaction name="actionmmxg"/>
     <addaction name="actionjkzb"/>
+    <addaction name="actionmmxg"/>
    </widget>
    <addaction name="future_a"/>
    <addaction name="option_a"/>
@@ -215,7 +215,7 @@
   </action>
   <action name="actioncjyh">
    <property name="text">
-    <string>创建角色</string>
+    <string>用户管理</string>
    </property>
   </action>
   <action name="actionmmcz">
@@ -230,7 +230,7 @@
   </action>
   <action name="actionzssz">
    <property name="text">
-    <string>做市设置</string>
+    <string>做市权限设置</string>
    </property>
   </action>
   <action name="actionfksz">
@@ -706,6 +706,11 @@
   <action name="actionif_op">
    <property name="text">
     <string>沪深300</string>
+   </property>
+  </action>
+  <action name="actionjsgl">
+   <property name="text">
+    <string>角色管理</string>
    </property>
   </action>
  </widget>

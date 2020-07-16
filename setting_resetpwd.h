@@ -15,6 +15,9 @@ public:
     explicit setting_resetPwd(QWidget *parent = nullptr);
     ~setting_resetPwd();
 
+private slots:
+    void on_buttonBox_accepted();
+
 private:
     Ui::setting_resetPwd *ui;
 };

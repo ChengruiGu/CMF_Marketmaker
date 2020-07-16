@@ -26,10 +26,12 @@ SOURCES += \
     setting_changepwd.cpp \
     setting_chooseproduct.cpp \
     setting_createrole.cpp \
+    setting_manageuser.cpp \
     setting_resetpwd.cpp \
     setting_riskctrl.cpp \
     setting_riskprmt.cpp \
-    setting_setmm.cpp
+    setting_setmm.cpp \
+    setting_setrole.cpp
 
 HEADERS += \
     bar.h \
@@ -41,10 +43,12 @@ HEADERS += \
     setting_changepwd.h \
     setting_chooseproduct.h \
     setting_createrole.h \
+    setting_manageuser.h \
     setting_resetpwd.h \
     setting_riskctrl.h \
     setting_riskprmt.h \
-    setting_setmm.h
+    setting_setmm.h \
+    setting_setrole.h
 
 FORMS += \
     login_dialog.ui \
@@ -54,10 +58,12 @@ FORMS += \
     setting_changepwd.ui \
     setting_chooseproduct.ui \
     setting_createrole.ui \
+    setting_manageuser.ui \
     setting_resetpwd.ui \
     setting_riskctrl.ui \
     setting_riskprmt.ui \
-    setting_setmm.ui
+    setting_setmm.ui \
+    setting_setrole.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

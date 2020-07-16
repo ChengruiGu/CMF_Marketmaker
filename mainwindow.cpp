@@ -10,6 +10,8 @@
 #include "setting_riskctrl.h"
 #include "setting_changepwd.h"
 #include "setting_riskprmt.h"
+#include "setting_manageuser.h"
+#include "setting_setrole.h"
 
 
 
@@ -20,7 +22,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    this->setWindowTitle(QString::fromLocal8Bit("��֤�ʱ�Ͷ�����޹�˾����ϵͳ"));
+    this->setWindowTitle("招证资本投资有限公司做市系统");
 
     pagesWidget = new QStackedWidget;
     //pagesWidget->setWindowTitle("pagesWidget");
@@ -30,7 +32,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     setCentralWidget(pagesWidget);
 
-    //������
+    //上期所
     connect(this->ui->actiontong_2,&QAction::triggered,this,&MainWindow::setFuturePage);
     connect(this->ui->actionlv_2,&QAction::triggered,this,&MainWindow::setFuturePage);
     connect(this->ui->actionxi_2,&QAction::triggered,this,&MainWindow::setFuturePage);
@@ -49,7 +51,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(this->ui->action20hao,&QAction::triggered,this,&MainWindow::setFuturePage);
     connect(this->ui->actionzhijiang,&QAction::triggered,this,&MainWindow::setFuturePage);
 
-    //֣����
+    //郑商所
     connect(this->ui->actionbaitang,&QAction::triggered,this,&MainWindow::setFuturePage);
     connect(this->ui->actionmianhua,&QAction::triggered,this,&MainWindow::setFuturePage);
     connect(this->ui->actionpumai,&QAction::triggered,this,&MainWindow::setFuturePage);
@@ -64,19 +66,19 @@ MainWindow::MainWindow(QWidget *parent)
     connect(this->ui->actionmiansha,&QAction::triggered,this,&MainWindow::setFuturePage);
     connect(this->ui->actionhongzao,&QAction::triggered,this,&MainWindow::setFuturePage);
 
-    //������
+    //大商所
 
 
     connect(this->ui->actiontong_op,&QAction::triggered,this,&MainWindow::setOptionPage);
 
+    //设置菜单
     connect(this->ui->actioncjyh,&QAction::triggered,this,&MainWindow::createRole);
-    connect(this->ui->actionmmcz,&QAction::triggered,this,&MainWindow::resetPwd);
     connect(this->ui->actionpzsz,&QAction::triggered,this,&MainWindow::chooseProduct);
     connect(this->ui->actionzssz,&QAction::triggered,this,&MainWindow::setMm);
     connect(this->ui->actionfksz,&QAction::triggered,this,&MainWindow::riskControl);
     connect(this->ui->actionmmxg,&QAction::triggered,this,&MainWindow::changePwd);
     connect(this->ui->actionjkzb,&QAction::triggered,this,&MainWindow::riskParameter);
-
+    connect(this->ui->actionjsgl,&QAction::triggered,this,&MainWindow::setRole);
 }
 
 MainWindow::~MainWindow()
@@ -99,14 +101,10 @@ void MainWindow::setOptionPage(){
 }
 
 void MainWindow::createRole(){
-    setting_createRole *cr = new setting_createRole;
-    cr->show();
+    setting_manageuser *mu = new setting_manageuser;
+    mu->show();
 }
 
-void MainWindow::resetPwd(){
-    setting_resetPwd *rp = new setting_resetPwd;
-    rp->show();
-}
 
 void MainWindow::chooseProduct(){
     setting_chooseProduct *cp = new setting_chooseProduct;
@@ -131,4 +129,9 @@ void MainWindow::changePwd(){
 void MainWindow::riskParameter(){
     setting_riskprmt *rp = new setting_riskprmt;
     rp->show();
+}
+
+void MainWindow::setRole(){
+    setting_setrole *sr = new setting_setrole;
+    sr->show();
 }

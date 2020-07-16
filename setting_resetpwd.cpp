@@ -12,3 +12,8 @@ setting_resetPwd::~setting_resetPwd()
 {
     delete ui;
 }
+
+void setting_resetPwd::on_buttonBox_accepted()
+{
+
+}

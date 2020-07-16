@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>setting_setmm</class>
- <widget class="QDialog" name="setting_setmm">
+ <class>setting_setrole</class>
+ <widget class="QDialog" name="setting_setrole">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>287</width>
-    <height>256</height>
+    <width>311</width>
+    <height>253</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>做市设置</string>
+   <string>角色管理</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_2">
+  <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout">
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
       <widget class="QGroupBox" name="groupBox">
        <property name="title">
-        <string>交易员</string>
+        <string>角色</string>
        </property>
-       <layout class="QVBoxLayout" name="verticalLayout">
+       <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
          <widget class="QListView" name="listView"/>
         </item>
@@ -31,55 +31,55 @@
      <item>
       <widget class="QGroupBox" name="groupBox_2">
        <property name="title">
-        <string>合约</string>
+        <string>权限</string>
        </property>
        <layout class="QFormLayout" name="formLayout">
         <item row="0" column="0">
          <widget class="QCheckBox" name="checkBox">
           <property name="text">
-           <string>MA009</string>
+           <string>用户管理</string>
           </property>
          </widget>
         </item>
         <item row="0" column="1">
-         <widget class="QCheckBox" name="checkBox_6">
+         <widget class="QCheckBox" name="checkBox_5">
           <property name="text">
-           <string>IF2008</string>
+           <string>风控设置</string>
           </property>
          </widget>
         </item>
         <item row="1" column="0">
          <widget class="QCheckBox" name="checkBox_2">
           <property name="text">
-           <string>CU2009</string>
+           <string>角色管理</string>
           </property>
          </widget>
         </item>
         <item row="1" column="1">
-         <widget class="QCheckBox" name="checkBox_7">
+         <widget class="QCheckBox" name="checkBox_6">
           <property name="text">
-           <string>IF2009</string>
+           <string>监控指标</string>
           </property>
          </widget>
         </item>
         <item row="2" column="0">
          <widget class="QCheckBox" name="checkBox_3">
           <property name="text">
-           <string>AU2010</string>
+           <string>品种设置</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QCheckBox" name="checkBox_7">
+          <property name="text">
+           <string>密码修改</string>
           </property>
          </widget>
         </item>
         <item row="3" column="0">
          <widget class="QCheckBox" name="checkBox_4">
           <property name="text">
-           <string>AU2011</string>
-          </property>
-         </widget>
-        </item>
-        <item row="4" column="0">
-         <widget class="QCheckBox" name="checkBox_5">
-          <property name="text">
-           <string>AU2012</string>
+           <string>做市权限设置</string>
           </property>
          </widget>
         </item>
@@ -105,7 +105,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>setting_setmm</receiver>
+   <receiver>setting_setrole</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -121,7 +121,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>setting_setmm</receiver>
+   <receiver>setting_setrole</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
