@@ -12,7 +12,7 @@
 #include "setting_riskprmt.h"
 #include "setting_manageuser.h"
 #include "setting_setrole.h"
-
+#include "setting_addconract.h"
 
 
 #include <QtWidgets>
@@ -31,6 +31,8 @@ MainWindow::MainWindow(QWidget *parent)
     pagesWidget->addWidget(new mm_page2);
 
     setCentralWidget(pagesWidget);
+//    setWindowState(Qt::WindowFullScreen);
+    showMaximized();
 
     //上期所
     connect(this->ui->actiontong_2,&QAction::triggered,this,&MainWindow::setFuturePage);
@@ -79,6 +81,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(this->ui->actionmmxg,&QAction::triggered,this,&MainWindow::changePwd);
     connect(this->ui->actionjkzb,&QAction::triggered,this,&MainWindow::riskParameter);
     connect(this->ui->actionjsgl,&QAction::triggered,this,&MainWindow::setRole);
+    connect(this->ui->actiontjhy,&QAction::triggered,this,&MainWindow::setContract);
 }
 
 MainWindow::~MainWindow()
@@ -134,4 +137,9 @@ void MainWindow::riskParameter(){
 void MainWindow::setRole(){
     setting_setrole *sr = new setting_setrole;
     sr->show();
+}
+
+void MainWindow::setContract(){
+    setting_addconract *ac = new setting_addconract;
+    ac->show();
 }

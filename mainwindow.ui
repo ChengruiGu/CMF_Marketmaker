@@ -182,6 +182,7 @@
     </property>
     <addaction name="actioncjyh"/>
     <addaction name="actionjsgl"/>
+    <addaction name="actiontjhy"/>
     <addaction name="actionpzsz"/>
     <addaction name="actionzssz"/>
     <addaction name="actionfksz"/>
@@ -711,6 +712,11 @@
   <action name="actionjsgl">
    <property name="text">
     <string>角色管理</string>
+   </property>
+  </action>
+  <action name="actiontjhy">
+   <property name="text">
+    <string>添加合约</string>
    </property>
   </action>
  </widget>

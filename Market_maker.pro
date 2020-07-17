@@ -23,6 +23,7 @@ SOURCES += \
     mainwindow.cpp \
     mm_page.cpp \
     mm_page2.cpp \
+    setting_addconract.cpp \
     setting_changepwd.cpp \
     setting_chooseproduct.cpp \
     setting_createrole.cpp \
@@ -40,6 +41,7 @@ HEADERS += \
     mainwindow.h \
     mm_page.h \
     mm_page2.h \
+    setting_addconract.h \
     setting_changepwd.h \
     setting_chooseproduct.h \
     setting_createrole.h \
@@ -55,6 +57,7 @@ FORMS += \
     mainwindow.ui \
     mm_page.ui \
     mm_page2.ui \
+    setting_addconract.ui \
     setting_changepwd.ui \
     setting_chooseproduct.ui \
     setting_createrole.ui \

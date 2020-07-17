@@ -29,6 +29,7 @@ public slots:
     void changePwd();
     void riskParameter();
     void setRole();
+    void setContract();
 
 private:
     Ui::MainWindow *ui;

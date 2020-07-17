@@ -23,4 +23,14 @@ signals:
 
 };
 
+class bar2 : public QWidget
+{
+    Q_OBJECT
+public:
+    explicit bar2(QWidget *parent = nullptr);
+
+signals:
+
+};
+
 #endif // BAR_H

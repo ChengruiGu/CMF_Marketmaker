@@ -11,6 +11,7 @@ mm_page::mm_page(QWidget *parent) :
 
     bar *b = new bar;
     bar1 *b1 = new bar1;
+    bar2 *b2 = new bar2;
 //    QHBoxLayout *hbox = new QHBoxLayout;
 //    hbox->addWidget(b);
 //    hbox->addWidget(b1);
@@ -22,6 +23,7 @@ mm_page::mm_page(QWidget *parent) :
     ui->horizontalLayout_8->setContentsMargins(1,1,1,1);
     ui->horizontalLayout_8->addWidget(b);
     ui->horizontalLayout_8->addWidget(b1);
+    ui->horizontalLayout_8->addWidget(b2);
 
 }
 
