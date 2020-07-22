@@ -180,13 +180,23 @@
     <property name="title">
      <string>系统设置</string>
     </property>
+    <widget class="QMenu" name="menu_10">
+     <property name="title">
+      <string>风控设置</string>
+     </property>
+     <addaction name="actiondhyfk"/>
+     <addaction name="actionzhfk"/>
+    </widget>
     <addaction name="actioncjyh"/>
     <addaction name="actionjsgl"/>
+    <addaction name="separator"/>
     <addaction name="actiontjhy"/>
     <addaction name="actionpzsz"/>
     <addaction name="actionzssz"/>
-    <addaction name="actionfksz"/>
+    <addaction name="menu_10"/>
     <addaction name="actionjkzb"/>
+    <addaction name="actionsccl"/>
+    <addaction name="separator"/>
     <addaction name="actionmmxg"/>
    </widget>
    <addaction name="future_a"/>
@@ -232,11 +242,6 @@
   <action name="actionzssz">
    <property name="text">
     <string>做市权限设置</string>
-   </property>
-  </action>
-  <action name="actionfksz">
-   <property name="text">
-    <string>风控设置</string>
    </property>
   </action>
   <action name="actionmmxg">
@@ -716,7 +721,22 @@
   </action>
   <action name="actiontjhy">
    <property name="text">
-    <string>添加合约</string>
+    <string>合约管理</string>
+   </property>
+  </action>
+  <action name="actionsccl">
+   <property name="text">
+    <string>上传策略</string>
+   </property>
+  </action>
+  <action name="actiondhyfk">
+   <property name="text">
+    <string>单合约风控</string>
+   </property>
+  </action>
+  <action name="actionzhfk">
+   <property name="text">
+    <string>组合风控</string>
    </property>
   </action>
  </widget>

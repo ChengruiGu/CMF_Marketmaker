@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>setting_resetPwd</class>
- <widget class="QDialog" name="setting_resetPwd">
+ <class>setting_uploadstrategy</class>
+ <widget class="QDialog" name="setting_uploadstrategy">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>211</width>
-    <height>112</height>
+    <width>258</width>
+    <height>142</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>重置密码</string>
+   <string>上传策略</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -19,35 +19,25 @@
      <item>
       <widget class="QLabel" name="label">
        <property name="text">
-        <string>选择用户名：</string>
+        <string>上传策略：</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QComboBox" name="comboBox">
-       <item>
-        <property name="text">
-         <string>cg487</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>dl355</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>ch761</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>jq190</string>
-        </property>
-       </item>
+      <widget class="QPushButton" name="pushButton">
+       <property name="text">
+        <string>选择文件</string>
+       </property>
       </widget>
      </item>
     </layout>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_2">
+     <property name="text">
+      <string> </string>
+     </property>
+    </widget>
    </item>
    <item>
     <widget class="QDialogButtonBox" name="buttonBox">
@@ -66,7 +56,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>setting_resetPwd</receiver>
+   <receiver>setting_uploadstrategy</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -82,7 +72,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>setting_resetPwd</receiver>
+   <receiver>setting_uploadstrategy</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

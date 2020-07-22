@@ -13,6 +13,11 @@
 #include "setting_manageuser.h"
 #include "setting_setrole.h"
 #include "setting_addconract.h"
+#include "setting_uploadstrategy.h"
+#include "twolabel.h"
+#include "account_login.h"
+#include "setting_riskctrlp.h"
+#include "welcome_page.h"
 
 
 #include <QtWidgets>
@@ -24,16 +29,59 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     this->setWindowTitle("招证资本投资有限公司做市系统");
 
-    pagesWidget = new QStackedWidget;
-    //pagesWidget->setWindowTitle("pagesWidget");
+    pagesWidget = new QTabWidget;
+    pagesWidget->setTabsClosable(true);
     future_page = new mm_page;
-    pagesWidget->addWidget(future_page);
-    pagesWidget->addWidget(new mm_page2);
-
     setCentralWidget(pagesWidget);
-//    setWindowState(Qt::WindowFullScreen);
-    showMaximized();
+    this->showMaximized();
 
+    //欢迎页
+    welcome_page *wp = new welcome_page;
+    pagesWidget->addTab(wp,0);
+    pagesWidget->setCurrentIndex(0);
+
+// 底部状态栏 显示账户信息
+    QPushButton *acnt_login = new QPushButton;
+    acnt_login->setText("登录交易账户");
+
+    twoLabel *tl5 = new twoLabel;
+    tl5->setLabel1("账户状态：");
+    tl5->setLabel2("已登录");
+
+    twoLabel *tl1 = new twoLabel;
+    tl1->setLabel1("静态权益：");
+    tl1->setLabel2("50426875.53");
+
+    twoLabel *tl2 = new twoLabel;
+    tl2->setLabel1("平仓盈亏：");
+    tl2->setLabel2("0.00");
+
+    twoLabel *tl3 = new twoLabel;
+    tl3->setLabel1("持仓盈亏：");
+    tl3->setLabel2("-58.00");
+
+    twoLabel *tl4 = new twoLabel;
+    tl4->setLabel1("手续费：");
+    tl4->setLabel2("134.00");
+
+    twoLabel *tl6 = new twoLabel;
+    tl6->setLabel1("保证金占用:");
+    tl6->setLabel2("345.00");
+
+    statusBar()->addPermanentWidget(acnt_login);
+    statusBar()->addPermanentWidget(tl5);
+    statusBar()->addPermanentWidget(tl1);
+    statusBar()->addPermanentWidget(tl2);
+    statusBar()->addPermanentWidget(tl3);
+    statusBar()->addPermanentWidget(tl4);
+
+    //状态栏关联登录交易账户
+    connect(acnt_login, &QPushButton::released, this, &MainWindow::login_tradeAcnt);
+
+    //tab栏关闭tab
+    connect(pagesWidget, &QTabWidget::tabCloseRequested, this, &MainWindow::closeMyTab);
+
+    //顶部菜单栏连接
     //上期所
     connect(this->ui->actiontong_2,&QAction::triggered,this,&MainWindow::setFuturePage);
     connect(this->ui->actionlv_2,&QAction::triggered,this,&MainWindow::setFuturePage);
@@ -77,11 +125,13 @@ MainWindow::MainWindow(QWidget *parent)
     connect(this->ui->actioncjyh,&QAction::triggered,this,&MainWindow::createRole);
     connect(this->ui->actionpzsz,&QAction::triggered,this,&MainWindow::chooseProduct);
     connect(this->ui->actionzssz,&QAction::triggered,this,&MainWindow::setMm);
-    connect(this->ui->actionfksz,&QAction::triggered,this,&MainWindow::riskControl);
+    connect(this->ui->actiondhyfk,&QAction::triggered,this,&MainWindow::riskControl);
     connect(this->ui->actionmmxg,&QAction::triggered,this,&MainWindow::changePwd);
     connect(this->ui->actionjkzb,&QAction::triggered,this,&MainWindow::riskParameter);
     connect(this->ui->actionjsgl,&QAction::triggered,this,&MainWindow::setRole);
     connect(this->ui->actiontjhy,&QAction::triggered,this,&MainWindow::setContract);
+    connect(this->ui->actionsccl,&QAction::triggered,this,&MainWindow::addStrategy);
+    connect(this->ui->actionzhfk,&QAction::triggered,this,&MainWindow::riskParameterP);
 }
 
 MainWindow::~MainWindow()
@@ -90,17 +140,29 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::setFuturePage(){
-    pagesWidget->setCurrentIndex(0); //mm_page
+    mm_page *np = new mm_page;
     QAction *a = qobject_cast<QAction*>(sender());
     QString s = a->text();
-    future_page->setName(s);
+    int idx = pagesWidget->addTab(np,s); //mm_page
+    np->setName(s);
+    pagesWidget->setCurrentIndex(idx);
+
 }
 
 void MainWindow::setOptionPage(){
-    pagesWidget->setCurrentIndex(0);
+    //pagesWidget->setCurrentIndex(0);
     QAction *a = qobject_cast<QAction*>(sender());
     QString s = a->text();
     future_page->setName1(s);
+}
+
+void MainWindow::closeMyTab(int i){
+    pagesWidget->removeTab(i);
+}
+
+void MainWindow::login_tradeAcnt(){
+    account_login *al = new account_login;
+    al->show();
 }
 
 void MainWindow::createRole(){
@@ -142,4 +204,14 @@ void MainWindow::setRole(){
 void MainWindow::setContract(){
     setting_addconract *ac = new setting_addconract;
     ac->show();
+}
+
+void MainWindow::addStrategy(){
+    setting_uploadstrategy *us = new setting_uploadstrategy;
+    us->show();
+}
+
+void MainWindow::riskParameterP(){
+    setting_riskctrlp *rp = new setting_riskctrlp;
+    rp->show();
 }

@@ -30,10 +30,14 @@ public slots:
     void riskParameter();
     void setRole();
     void setContract();
+    void closeMyTab(int i);
+    void login_tradeAcnt();
+    void addStrategy();
+    void riskParameterP();
 
 private:
     Ui::MainWindow *ui;
-    QStackedWidget *pagesWidget;
+    QTabWidget *pagesWidget;
     mm_page *future_page;
 
 };

@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>合约管理</string>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout_4">
    <item>
@@ -21,7 +21,11 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
-       <widget class="QListView" name="listView"/>
+       <widget class="QListView" name="listView">
+        <property name="editTriggers">
+         <set>QAbstractItemView::NoEditTriggers</set>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>

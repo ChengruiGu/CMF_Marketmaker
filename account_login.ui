@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>setting_riskctrl</class>
- <widget class="QDialog" name="setting_riskctrl">
+ <class>account_login</class>
+ <widget class="QDialog" name="account_login">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
     <width>174</width>
-    <height>145</height>
+    <height>93</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>单合约风控设置</string>
+   <string>登录交易账号</string>
   </property>
   <layout class="QFormLayout" name="formLayout">
    <item row="0" column="0">
     <widget class="QLabel" name="label">
      <property name="text">
-      <string>合约名称：</string>
+      <string>交易账号:</string>
      </property>
     </widget>
    </item>
@@ -25,36 +25,16 @@
     <widget class="QLineEdit" name="lineEdit"/>
    </item>
    <item row="1" column="0">
-    <widget class="QLabel" name="label_5">
+    <widget class="QLabel" name="label_2">
      <property name="text">
-      <string>仓差：</string>
+      <string>密码：</string>
      </property>
     </widget>
    </item>
    <item row="1" column="1">
-    <widget class="QLineEdit" name="lineEdit_5"/>
-   </item>
-   <item row="2" column="0">
-    <widget class="QLabel" name="label_2">
-     <property name="text">
-      <string>净敞口：</string>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="1">
     <widget class="QLineEdit" name="lineEdit_2"/>
    </item>
-   <item row="3" column="0">
-    <widget class="QLabel" name="label_3">
-     <property name="text">
-      <string>净敞口比例：</string>
-     </property>
-    </widget>
-   </item>
-   <item row="3" column="1">
-    <widget class="QLineEdit" name="lineEdit_3"/>
-   </item>
-   <item row="4" column="0" colspan="2">
+   <item row="2" column="0" colspan="2">
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -70,24 +50,8 @@
  <connections>
   <connection>
    <sender>buttonBox</sender>
-   <signal>rejected()</signal>
-   <receiver>setting_riskctrl</receiver>
-   <slot>reject()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>316</x>
-     <y>260</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>286</x>
-     <y>274</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>setting_riskctrl</receiver>
+   <receiver>account_login</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -96,6 +60,22 @@
     </hint>
     <hint type="destinationlabel">
      <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>account_login</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>316</x>
+     <y>260</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
      <y>274</y>
     </hint>
    </hints>
