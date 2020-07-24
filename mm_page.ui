@@ -6,14 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1026</width>
-    <height>548</height>
+    <width>1187</width>
+    <height>486</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_6">
+  <layout class="QVBoxLayout" name="verticalLayout_4">
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_10">
      <item>
@@ -658,8 +658,8 @@
            <property name="title">
             <string>风控</string>
            </property>
-           <layout class="QVBoxLayout" name="verticalLayout_4">
-            <item>
+           <layout class="QGridLayout" name="gridLayout_6">
+            <item row="0" column="0">
              <widget class="QGroupBox" name="groupBox_11">
               <property name="title">
                <string>单合约</string>
@@ -703,7 +703,7 @@
                <item row="2" column="2">
                 <widget class="QLabel" name="label_67">
                  <property name="text">
-                  <string>1</string>
+                  <string>54390</string>
                  </property>
                 </widget>
                </item>
@@ -717,14 +717,14 @@
                <item row="1" column="2">
                 <widget class="QLabel" name="label_21">
                  <property name="text">
-                  <string>TextLabel</string>
+                  <string>3</string>
                  </property>
                 </widget>
                </item>
                <item row="3" column="2">
                 <widget class="QLabel" name="label_69">
                  <property name="text">
-                  <string>1</string>
+                  <string>0.25</string>
                  </property>
                 </widget>
                </item>
@@ -752,7 +752,115 @@
               </layout>
              </widget>
             </item>
-            <item>
+            <item row="0" column="1">
+             <widget class="QGroupBox" name="groupBox_9">
+              <property name="title">
+               <string>单品种</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_4">
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_88">
+                 <property name="text">
+                  <string>选择合约:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QComboBox" name="comboBox_4">
+                 <item>
+                  <property name="text">
+                   <string>铜</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>锡</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>铅</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>金</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>银</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_58">
+                 <property name="text">
+                  <string>仓差：</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QLabel" name="label_57">
+                 <property name="text">
+                  <string>TextLabel</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="2">
+                <widget class="QLabel" name="label_89">
+                 <property name="text">
+                  <string>TextLabel</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="label_93">
+                 <property name="text">
+                  <string>净敞口：</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QLabel" name="label_91">
+                 <property name="text">
+                  <string>1</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="2">
+                <widget class="QLabel" name="label_90">
+                 <property name="text">
+                  <string>TextLabel</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="label_92">
+                 <property name="text">
+                  <string>净敞口比例：</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QLabel" name="label_86">
+                 <property name="text">
+                  <string>1</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="2">
+                <widget class="QLabel" name="label_87">
+                 <property name="text">
+                  <string>TextLabel</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="1" column="0">
              <widget class="QGroupBox" name="groupBox_12">
               <property name="title">
                <string>组合</string>
@@ -768,14 +876,17 @@
                <item row="0" column="1">
                 <widget class="QLabel" name="label_23">
                  <property name="text">
-                  <string>TextLabel</string>
+                  <string>60600800.00</string>
                  </property>
                 </widget>
                </item>
                <item row="0" column="2">
                 <widget class="QLabel" name="label_70">
                  <property name="text">
-                  <string>TextLabel</string>
+                  <string>200000000</string>
+                 </property>
+                 <property name="textFormat">
+                  <enum>Qt::AutoText</enum>
                  </property>
                 </widget>
                </item>
@@ -789,14 +900,14 @@
                <item row="1" column="1">
                 <widget class="QLabel" name="label_75">
                  <property name="text">
-                  <string>TextLabel</string>
+                  <string>5251896.00</string>
                  </property>
                 </widget>
                </item>
                <item row="1" column="2">
                 <widget class="QLabel" name="label_76">
                  <property name="text">
-                  <string>TextLabel</string>
+                  <string>2000000</string>
                  </property>
                 </widget>
                </item>
@@ -810,14 +921,14 @@
                <item row="2" column="1">
                 <widget class="QLabel" name="label_77">
                  <property name="text">
-                  <string>TextLabel</string>
+                  <string>58354400.00</string>
                  </property>
                 </widget>
                </item>
                <item row="2" column="2">
                 <widget class="QLabel" name="label_78">
                  <property name="text">
-                  <string>TextLabel</string>
+                  <string>2000000</string>
                  </property>
                 </widget>
                </item>
@@ -831,14 +942,14 @@
                <item row="3" column="1">
                 <widget class="QLabel" name="label_79">
                  <property name="text">
-                  <string>TextLabel</string>
+                  <string>0.9629</string>
                  </property>
                 </widget>
                </item>
                <item row="3" column="2">
                 <widget class="QLabel" name="label_80">
                  <property name="text">
-                  <string>TextLabel</string>
+                  <string>0.05</string>
                  </property>
                 </widget>
                </item>
@@ -852,12 +963,126 @@
                <item row="4" column="1">
                 <widget class="QLabel" name="label_81">
                  <property name="text">
-                  <string>TextLabel</string>
+                  <string>0.3030</string>
                  </property>
                 </widget>
                </item>
                <item row="4" column="2">
                 <widget class="QLabel" name="label_82">
+                 <property name="text">
+                  <string>0.7</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QGroupBox" name="groupBox_13">
+              <property name="title">
+               <string>品类集中度</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_5">
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_59">
+                 <property name="text">
+                  <string>基本金属类：</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLabel" name="label_60">
+                 <property name="text">
+                  <string>0.00</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QLabel" name="label_101">
+                 <property name="text">
+                  <string>TextLabel</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_97">
+                 <property name="text">
+                  <string>贵金属类：</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QLabel" name="label_98">
+                 <property name="text">
+                  <string>0.00</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="2">
+                <widget class="QLabel" name="label_104">
+                 <property name="text">
+                  <string>TextLabel</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="label_94">
+                 <property name="text">
+                  <string>黑色金属类：</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QLabel" name="label_102">
+                 <property name="text">
+                  <string>0.70</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="2">
+                <widget class="QLabel" name="label_100">
+                 <property name="text">
+                  <string>TextLabel</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="label_96">
+                 <property name="text">
+                  <string>能源化工类：</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QLabel" name="label_105">
+                 <property name="text">
+                  <string>0.30</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="2">
+                <widget class="QLabel" name="label_95">
+                 <property name="text">
+                  <string>TextLabel</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="0">
+                <widget class="QLabel" name="label_106">
+                 <property name="text">
+                  <string>农产品类：</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="1">
+                <widget class="QLabel" name="label_99">
+                 <property name="text">
+                  <string>0.00</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="2">
+                <widget class="QLabel" name="label_103">
                  <property name="text">
                   <string>TextLabel</string>
                  </property>

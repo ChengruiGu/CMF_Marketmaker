@@ -7,85 +7,13 @@
     <x>0</x>
     <y>0</y>
     <width>227</width>
-    <height>301</height>
+    <height>203</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>组合风控设置</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
-   <item>
-    <widget class="QGroupBox" name="groupBox">
-     <property name="title">
-      <string>选择合约</string>
-     </property>
-     <layout class="QGridLayout" name="gridLayout">
-      <item row="0" column="0">
-       <widget class="QCheckBox" name="checkBox_4">
-        <property name="text">
-         <string>cu2010</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="1">
-       <widget class="QCheckBox" name="checkBox_8">
-        <property name="text">
-         <string>MA009</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1" colspan="2">
-       <widget class="QCheckBox" name="checkBox_2">
-        <property name="text">
-         <string>ru2009</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QCheckBox" name="checkBox">
-        <property name="text">
-         <string>al2008</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1" colspan="2">
-       <widget class="QCheckBox" name="checkBox_5">
-        <property name="text">
-         <string>ni2010</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="3">
-       <widget class="QCheckBox" name="checkBox_3">
-        <property name="text">
-         <string>rb2010</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="3">
-       <widget class="QCheckBox" name="checkBox_6">
-        <property name="text">
-         <string>pp2009</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0">
-       <widget class="QCheckBox" name="checkBox_7">
-        <property name="text">
-         <string>WH009</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="2" colspan="2">
-       <widget class="QCheckBox" name="checkBox_9">
-        <property name="text">
-         <string>FG009</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-   </item>
    <item>
     <widget class="QGroupBox" name="groupBox_2">
      <property name="title">

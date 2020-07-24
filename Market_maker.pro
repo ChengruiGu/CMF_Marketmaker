@@ -31,7 +31,9 @@ SOURCES += \
     setting_manageuser.cpp \
     setting_resetpwd.cpp \
     setting_riskctrl.cpp \
+    setting_riskctrlcategory.cpp \
     setting_riskctrlp.cpp \
+    setting_riskctrlproduct.cpp \
     setting_riskprmt.cpp \
     setting_setmm.cpp \
     setting_setrole.cpp \
@@ -54,7 +56,9 @@ HEADERS += \
     setting_manageuser.h \
     setting_resetpwd.h \
     setting_riskctrl.h \
+    setting_riskctrlcategory.h \
     setting_riskctrlp.h \
+    setting_riskctrlproduct.h \
     setting_riskprmt.h \
     setting_setmm.h \
     setting_setrole.h \
@@ -75,7 +79,9 @@ FORMS += \
     setting_manageuser.ui \
     setting_resetpwd.ui \
     setting_riskctrl.ui \
+    setting_riskctrlcategory.ui \
     setting_riskctrlp.ui \
+    setting_riskctrlproduct.ui \
     setting_riskprmt.ui \
     setting_setmm.ui \
     setting_setrole.ui \

@@ -34,6 +34,8 @@ public slots:
     void login_tradeAcnt();
     void addStrategy();
     void riskParameterP();
+    void riskControlProduct();
+    void riskControlCategory();
 
 private:
     Ui::MainWindow *ui;

@@ -185,6 +185,8 @@
       <string>风控设置</string>
      </property>
      <addaction name="actiondhyfk"/>
+     <addaction name="actionpzfk"/>
+     <addaction name="actionlxfk"/>
      <addaction name="actionzhfk"/>
     </widget>
     <addaction name="actioncjyh"/>
@@ -737,6 +739,16 @@
   <action name="actionzhfk">
    <property name="text">
     <string>组合风控</string>
+   </property>
+  </action>
+  <action name="actionpzfk">
+   <property name="text">
+    <string>品种风控</string>
+   </property>
+  </action>
+  <action name="actionlxfk">
+   <property name="text">
+    <string>品类集中度风控</string>
    </property>
   </action>
  </widget>
