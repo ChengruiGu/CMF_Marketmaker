@@ -33,9 +33,9 @@ public slots:
     void closeMyTab(int i);
     void login_tradeAcnt();
     void addStrategy();
-    void riskParameterP();
-    void riskControlProduct();
-    void riskControlCategory();
+    //void riskParameterP();
+    //void riskControlProduct();
+    //void riskControlCategory();
 
 private:
     Ui::MainWindow *ui;

@@ -32,6 +32,7 @@ SOURCES += \
     setting_resetpwd.cpp \
     setting_riskctrl.cpp \
     setting_riskctrlcategory.cpp \
+    setting_riskctrlfold.cpp \
     setting_riskctrlp.cpp \
     setting_riskctrlproduct.cpp \
     setting_riskprmt.cpp \
@@ -57,6 +58,7 @@ HEADERS += \
     setting_resetpwd.h \
     setting_riskctrl.h \
     setting_riskctrlcategory.h \
+    setting_riskctrlfold.h \
     setting_riskctrlp.h \
     setting_riskctrlproduct.h \
     setting_riskprmt.h \
@@ -80,6 +82,7 @@ FORMS += \
     setting_resetpwd.ui \
     setting_riskctrl.ui \
     setting_riskctrlcategory.ui \
+    setting_riskctrlfold.ui \
     setting_riskctrlp.ui \
     setting_riskctrlproduct.ui \
     setting_riskprmt.ui \

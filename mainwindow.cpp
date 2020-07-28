@@ -7,7 +7,6 @@
 #include "setting_resetpwd.h"
 #include "setting_chooseproduct.h"
 #include "setting_setmm.h"
-#include "setting_riskctrl.h"
 #include "setting_changepwd.h"
 #include "setting_riskprmt.h"
 #include "setting_manageuser.h"
@@ -16,11 +15,8 @@
 #include "setting_uploadstrategy.h"
 #include "twolabel.h"
 #include "account_login.h"
-#include "setting_riskctrlp.h"
 #include "welcome_page.h"
-#include "setting_riskctrlproduct.h"
-#include "setting_riskctrlcategory.h"
-
+#include "setting_riskctrlfold.h"
 
 #include <QtWidgets>
 
@@ -134,9 +130,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(this->ui->actionjsgl,&QAction::triggered,this,&MainWindow::setRole);
     connect(this->ui->actiontjhy,&QAction::triggered,this,&MainWindow::setContract);
     connect(this->ui->actionsccl,&QAction::triggered,this,&MainWindow::addStrategy);
-    connect(this->ui->actionzhfk,&QAction::triggered,this,&MainWindow::riskParameterP);
-    connect(this->ui->actionpzfk,&QAction::triggered,this,&MainWindow::riskControlProduct);
-    connect(this->ui->actionlxfk,&QAction::triggered,this,&MainWindow::riskControlCategory);
+    connect(this->ui->actionfksz,&QAction::triggered,this,&MainWindow::riskControl);
 }
 
 MainWindow::~MainWindow()
@@ -187,7 +181,7 @@ void MainWindow::setMm(){
 }
 
 void MainWindow::riskControl(){
-    setting_riskctrl *rc = new setting_riskctrl;
+    setting_riskctrlfold *rc = new setting_riskctrlfold;
     rc->show();
 }
 
@@ -214,19 +208,4 @@ void MainWindow::setContract(){
 void MainWindow::addStrategy(){
     setting_uploadstrategy *us = new setting_uploadstrategy;
     us->show();
-}
-
-void MainWindow::riskParameterP(){
-    setting_riskctrlp *rp = new setting_riskctrlp;
-    rp->show();
-}
-
-void MainWindow::riskControlProduct(){
-    setting_riskctrlproduct *rcp = new setting_riskctrlproduct;
-    rcp->show();
-}
-
-void MainWindow::riskControlCategory(){
-    setting_riskctrlcategory *rcc = new setting_riskctrlcategory;
-    rcc->show();
 }

@@ -180,22 +180,13 @@
     <property name="title">
      <string>系统设置</string>
     </property>
-    <widget class="QMenu" name="menu_10">
-     <property name="title">
-      <string>风控设置</string>
-     </property>
-     <addaction name="actiondhyfk"/>
-     <addaction name="actionpzfk"/>
-     <addaction name="actionlxfk"/>
-     <addaction name="actionzhfk"/>
-    </widget>
     <addaction name="actioncjyh"/>
     <addaction name="actionjsgl"/>
     <addaction name="separator"/>
     <addaction name="actiontjhy"/>
     <addaction name="actionpzsz"/>
     <addaction name="actionzssz"/>
-    <addaction name="menu_10"/>
+    <addaction name="actionfksz"/>
     <addaction name="actionjkzb"/>
     <addaction name="actionsccl"/>
     <addaction name="separator"/>
@@ -749,6 +740,11 @@
   <action name="actionlxfk">
    <property name="text">
     <string>品类集中度风控</string>
+   </property>
+  </action>
+  <action name="actionfksz">
+   <property name="text">
+    <string>风控设置</string>
    </property>
   </action>
  </widget>
