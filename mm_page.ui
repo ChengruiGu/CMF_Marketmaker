@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1187</width>
+    <width>1233</width>
     <height>486</height>
    </rect>
   </property>
@@ -88,14 +88,14 @@
               </widget>
              </item>
              <item>
-              <spacer name="horizontalSpacer_2">
+              <spacer name="horizontalSpacer">
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
                </property>
                <property name="sizeHint" stdset="0">
                 <size>
-                 <width>27</width>
-                 <height>16</height>
+                 <width>40</width>
+                 <height>20</height>
                 </size>
                </property>
               </spacer>
@@ -134,7 +134,7 @@
               </widget>
              </item>
              <item>
-              <spacer name="horizontalSpacer_9">
+              <spacer name="horizontalSpacer_5">
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
                </property>
@@ -145,6 +145,13 @@
                 </size>
                </property>
               </spacer>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_61">
+               <property name="text">
+                <string>暂停中</string>
+               </property>
+              </widget>
              </item>
              <item>
               <widget class="QPushButton" name="pushButton_3">
@@ -243,6 +250,13 @@
               </spacer>
              </item>
              <item>
+              <widget class="QLabel" name="label_62">
+               <property name="text">
+                <string>暂停中</string>
+               </property>
+              </widget>
+             </item>
+             <item>
               <widget class="QPushButton" name="pushButton_5">
                <property name="text">
                 <string>启动</string>
@@ -302,7 +316,11 @@
             </property>
             <layout class="QHBoxLayout" name="horizontalLayout_5">
              <item>
-              <widget class="QTextBrowser" name="textBrowser"/>
+              <widget class="QPlainTextEdit" name="plainTextEdit">
+               <property name="readOnly">
+                <bool>true</bool>
+               </property>
+              </widget>
              </item>
             </layout>
            </widget>
@@ -876,7 +894,7 @@
                <item row="0" column="1">
                 <widget class="QLabel" name="label_23">
                  <property name="text">
-                  <string>60600800.00</string>
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#0000ff;&quot;&gt;60600800.00&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                  </property>
                 </widget>
                </item>
@@ -900,7 +918,7 @@
                <item row="1" column="1">
                 <widget class="QLabel" name="label_75">
                  <property name="text">
-                  <string>5251896.00</string>
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ff0000;&quot;&gt;5251896.00&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                  </property>
                 </widget>
                </item>
@@ -921,7 +939,7 @@
                <item row="2" column="1">
                 <widget class="QLabel" name="label_77">
                  <property name="text">
-                  <string>58354400.00</string>
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ff0000;&quot;&gt;58354400.00&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                  </property>
                 </widget>
                </item>
@@ -942,7 +960,7 @@
                <item row="3" column="1">
                 <widget class="QLabel" name="label_79">
                  <property name="text">
-                  <string>0.9629</string>
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ff0000;&quot;&gt;0.9629&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                  </property>
                 </widget>
                </item>
@@ -963,7 +981,7 @@
                <item row="4" column="1">
                 <widget class="QLabel" name="label_81">
                  <property name="text">
-                  <string>0.3030</string>
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#0000ff;&quot;&gt;0.3030&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                  </property>
                 </widget>
                </item>

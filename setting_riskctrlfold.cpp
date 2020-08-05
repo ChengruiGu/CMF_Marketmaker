@@ -15,21 +15,21 @@ setting_riskctrlfold::setting_riskctrlfold(QWidget *parent) :
     pl = new setting_riskctrlcategory;
     zh = new setting_riskctrlp;
     ui->verticalLayout->addWidget(dhy);
-    //ui->verticalLayout->addSpacing(1);
+    ui->verticalLayout->addStretch();
     ui->verticalLayout_2->addWidget(pz);
-    //ui->verticalLayout_2->addSpacing(1);
+    ui->verticalLayout_2->addStretch();
     ui->verticalLayout_3->addWidget(pl);
-    //ui->verticalLayout_3->addSpacing(1);
+    ui->verticalLayout_3->addStretch();
     ui->verticalLayout_4->addWidget(zh);
-    //ui->verticalLayout_4->addSpacing(1);
+    ui->verticalLayout_4->addStretch();
     dhy->setVisible(true);
     pz->setVisible(true);
     pl->setVisible(true);
     zh->setVisible(true);
     connect(ui->pushButton,&QPushButton::clicked,this,&setting_riskctrlfold::setdhy);
-        connect(ui->pushButton_2,&QPushButton::clicked,this,&setting_riskctrlfold::setpz);
-            connect(ui->pushButton_3,&QPushButton::clicked,this,&setting_riskctrlfold::setpl);
-                connect(ui->pushButton_4,&QPushButton::clicked,this,&setting_riskctrlfold::setzh);
+    connect(ui->pushButton_2,&QPushButton::clicked,this,&setting_riskctrlfold::setpz);
+    connect(ui->pushButton_3,&QPushButton::clicked,this,&setting_riskctrlfold::setpl);
+    connect(ui->pushButton_4,&QPushButton::clicked,this,&setting_riskctrlfold::setzh);
 }
 
 setting_riskctrlfold::~setting_riskctrlfold()
