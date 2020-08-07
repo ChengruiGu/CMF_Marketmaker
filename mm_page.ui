@@ -6,14 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1233</width>
+    <width>1240</width>
     <height>486</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_4">
+  <layout class="QHBoxLayout" name="horizontalLayout_9">
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_10">
      <item>
@@ -108,23 +108,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QComboBox" name="comboBox_3">
-               <item>
-                <property name="text">
-                 <string>s1.dll</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>s2.dll</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>s3.dll</string>
-                </property>
-               </item>
-              </widget>
+              <widget class="QComboBox" name="comboBox_3"/>
              </item>
              <item>
               <widget class="QPushButton" name="pushButton_7">
@@ -211,23 +195,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QComboBox" name="comboBox_5">
-               <item>
-                <property name="text">
-                 <string>s1.dll</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>s2.dll</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>s3.dll</string>
-                </property>
-               </item>
-              </widget>
+              <widget class="QComboBox" name="comboBox_5"/>
              </item>
              <item>
               <widget class="QPushButton" name="pushButton_8">
@@ -309,20 +277,20 @@
             </layout>
            </widget>
           </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_6">
+         <property name="title">
+          <string>运行情况</string>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_5">
           <item>
-           <widget class="QGroupBox" name="groupBox_6">
-            <property name="title">
-             <string>运行情况</string>
+           <widget class="QPlainTextEdit" name="plainTextEdit">
+            <property name="readOnly">
+             <bool>true</bool>
             </property>
-            <layout class="QHBoxLayout" name="horizontalLayout_5">
-             <item>
-              <widget class="QPlainTextEdit" name="plainTextEdit">
-               <property name="readOnly">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-            </layout>
            </widget>
           </item>
          </layout>

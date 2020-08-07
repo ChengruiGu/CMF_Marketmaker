@@ -19,6 +19,7 @@
 #include "setting_riskctrlfold.h"
 
 #include <QtWidgets>
+#include <QDir>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -34,11 +35,11 @@ MainWindow::MainWindow(QWidget *parent)
     this->showMaximized();
 
     //欢迎页
-    welcome_page *wp = new welcome_page;
-    pagesWidget->addTab(wp,0);
-    pagesWidget->setCurrentIndex(0);
+//    welcome_page *wp = new welcome_page;
+//    pagesWidget->addTab(wp,0);
+//    pagesWidget->setCurrentIndex(0);
 
-// 底部状态栏 显示账户信息
+    // 底部状态栏 显示账户信息
     QPushButton *acnt_login = new QPushButton;
     acnt_login->setText("登录交易账户");
 
@@ -80,6 +81,15 @@ MainWindow::MainWindow(QWidget *parent)
     //tab栏关闭tab
     connect(pagesWidget, &QTabWidget::tabCloseRequested, this, &MainWindow::closeMyTab);
 
+    //设置策略文件夹
+    QDir targetDir("./strategies");
+    if(!targetDir.exists()){    // 如果目标目录不存在，则进行创建
+        if(!targetDir.mkdir(targetDir.absolutePath())){
+            qWarning("Cannot create strategies folder!!!");
+            return;
+        }
+    }
+
     //顶部菜单栏连接
     //上期所
     connect(this->ui->actiontong_2,&QAction::triggered,this,&MainWindow::setFuturePage);
@@ -117,7 +127,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     //大商所
 
-
+    // 期权页关联
     connect(this->ui->actiontong_op,&QAction::triggered,this,&MainWindow::setOptionPage);
 
     //设置菜单
@@ -145,11 +155,9 @@ void MainWindow::setFuturePage(){
     int idx = pagesWidget->addTab(np,s); //mm_page
     np->setName(s);
     pagesWidget->setCurrentIndex(idx);
-
 }
 
 void MainWindow::setOptionPage(){
-    //pagesWidget->setCurrentIndex(0);
     QAction *a = qobject_cast<QAction*>(sender());
     QString s = a->text();
     future_page->setName1(s);
@@ -207,5 +215,9 @@ void MainWindow::setContract(){
 
 void MainWindow::addStrategy(){
     setting_uploadstrategy *us = new setting_uploadstrategy;
-    us->show();
+    us->exec(); //exec() 会block, 除非关闭当前小窗口否则无法操作大窗口
+    for(int i = 0; i < pagesWidget->count(); ++i){
+        mm_page *mp = qobject_cast<mm_page*>(pagesWidget->widget(i)); //类型转换
+        mp->refreshStrategyList();
+    }
 }

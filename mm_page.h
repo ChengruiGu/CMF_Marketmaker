@@ -17,6 +17,7 @@ public:
     ~mm_page();
     void setName(QString s);
     void setName1(QString s);
+    void refreshStrategyList();
 
 private slots:
     void on_pushButton_3_released();
@@ -25,10 +26,13 @@ private slots:
 
     void on_pushButton_4_released();
 
+    void on_comboBox_3_currentTextChanged(const QString &arg1);
+
 private:
     Ui::mm_page *ui;
     QProcess *p1;
     int p1_state = 0;
+    QString p1_strategy;
 };
 
 #endif // MM_PAGE_H

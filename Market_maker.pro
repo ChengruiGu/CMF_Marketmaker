@@ -24,6 +24,7 @@ SOURCES += \
     mainwindow.cpp \
     mm_page.cpp \
     mm_page2.cpp \
+    mm_tradecontrol.cpp \
     setting_addconract.cpp \
     setting_changepwd.cpp \
     setting_chooseproduct.cpp \
@@ -50,6 +51,7 @@ HEADERS += \
     mainwindow.h \
     mm_page.h \
     mm_page2.h \
+    mm_tradecontrol.h \
     setting_addconract.h \
     setting_changepwd.h \
     setting_chooseproduct.h \
@@ -74,6 +76,7 @@ FORMS += \
     mainwindow.ui \
     mm_page.ui \
     mm_page2.ui \
+    mm_tradecontrol.ui \
     setting_addconract.ui \
     setting_changepwd.ui \
     setting_chooseproduct.ui \

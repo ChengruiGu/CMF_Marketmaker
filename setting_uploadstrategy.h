@@ -18,6 +18,8 @@ public:
 private slots:
     void on_pushButton_released();
 
+    void on_pushButton_2_released();
+
 private:
     Ui::setting_uploadstrategy *ui;
 };
