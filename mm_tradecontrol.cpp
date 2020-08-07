@@ -8,6 +8,7 @@ mm_tradecontrol::mm_tradecontrol(QPlainTextEdit *output, QStringList s_List,QWid
     ui->setupUi(this);
     this->outside_display = output;
     this->strategyList = s_List;
+    refreshStrategyList();
 }
 
 mm_tradecontrol::~mm_tradecontrol()
@@ -18,8 +19,10 @@ mm_tradecontrol::~mm_tradecontrol()
 //选中策略
 void mm_tradecontrol::on_comboBox_currentTextChanged(const QString &arg1)
 {
-    proc_strategy = arg1;
-    ui->label_5->setText(proc_strategy);
+    if(!proc_state){ //仅在没有进程运行时才调整策略
+        proc_strategy = arg1;
+        ui->label_5->setText(proc_strategy);
+    }
 }
 
 //启动按钮
@@ -73,4 +76,12 @@ void mm_tradecontrol::refreshStrategyList(){
         QDir strategyName(strategyList[i]);
         ui->comboBox->addItem(strategyName.dirName());
     }
+}
+
+void mm_tradecontrol::start_trading(){
+    on_pushButton_2_released();
+}
+
+void mm_tradecontrol::suspend_trading(){
+    on_pushButton_3_released();
 }

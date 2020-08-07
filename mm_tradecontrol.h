@@ -17,6 +17,9 @@ class mm_tradecontrol : public QWidget
 public:
     explicit mm_tradecontrol(QPlainTextEdit *output, QStringList s_List, QWidget *parent = nullptr);
     ~mm_tradecontrol();
+    void refreshStrategyList();
+    void start_trading(); //由全部启动按钮调用，默认tradecontrol已初始化
+    void suspend_trading(); //由全部启动按钮调用，默认tradecontrol已初始化
 
 public:
     QStringList strategyList;
@@ -30,7 +33,6 @@ private slots:
 
     void on_proc_ReadStdOutput();
 
-    void refreshStrategyList();
 
 private:
     Ui::mm_tradecontrol *ui;

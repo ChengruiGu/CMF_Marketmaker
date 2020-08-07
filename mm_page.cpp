@@ -1,6 +1,7 @@
 #include "mm_page.h"
 #include "ui_mm_page.h"
 #include "bar.h"
+#include "mm_tradecontrol.h"
 #include <QtWidgets>
 #include <QProcess>
 #include <QDir>
@@ -20,8 +21,16 @@ mm_page::mm_page(QWidget *parent) :
     ui->horizontalLayout_8->addWidget(b1);
     ui->horizontalLayout_8->addWidget(b2);
 
-    //获取策略并显示在策略启动栏的combobox上
-    refreshStrategyList();
+    QDir strategyDir(QString("./strategies"));
+    QStringList strategyList = strategyDir.entryList();
+
+    //后续可以用一个vector管理所有tradecontrol，这里暂时先写死
+    tc1 = new mm_tradecontrol(ui->plainTextEdit, strategyList);
+    tc2 = new mm_tradecontrol(ui->plainTextEdit, strategyList);
+    tc3 = new mm_tradecontrol(ui->plainTextEdit, strategyList);
+    ui->verticalLayout_7->addWidget(tc1);
+    ui->verticalLayout_7->addWidget(tc2);
+    ui->verticalLayout_7->addWidget(tc3);
 
 }
 
@@ -42,62 +51,30 @@ void mm_page::setName1(QString s){
 
 void mm_page::refreshStrategyList(){
     //获取策略并显示在策略启动栏的combobox上
-    ui->comboBox_3->clear();
     QDir strategyDir(QString("./strategies"));
     QStringList strategyList = strategyDir.entryList();
-    for(int i = 2; i < strategyList.length(); ++i){
-        QDir strategyName(strategyList[i]);
-        ui->comboBox_3->addItem(strategyName.dirName());
-    }
+    tc1->strategyList = strategyList;
+    tc1->refreshStrategyList();
+
+    tc2->strategyList = strategyList;
+    tc2->refreshStrategyList();
+
+    tc3->strategyList = strategyList;
+    tc3->refreshStrategyList();
 }
 
-void mm_page::on_pushButton_3_released()
+//全部启动
+void mm_page::on_pushButton_released()
 {
-    if(p1_state) return;
-
-    //创建进程
-       QString program = "./strategies/";
-       program.append(p1_strategy);
-       QDir strategyPath(program);
-
-       QStringList arguments;
-       //arguments << "2020年8月5日" << "星期二";
-
-       p1 = new QProcess(this);
-       //connect要放在这里 不然会nullptr exception
-       connect(p1,&QProcess::readyReadStandardOutput,this,&mm_page::on_p1_ReadStdOutput);
-       p1->start(strategyPath.absolutePath(), arguments);
-       p1_state = 1;
-
-       //运行状态标签
-       ui->label_61->setText("运行中");
-       ui->label_61->setStyleSheet("QLabel {color : red; }");
+    tc1->start_trading();
+    tc2->start_trading();
+    tc3->start_trading();
 }
 
-void mm_page::on_p1_started(){
-
-}
-
-void mm_page::on_p1_ReadStdOutput(){
-    char buf[1024];
-    qint64 lineLength = p1->readLine(buf, sizeof(buf));
-        if (lineLength != -1) {
-            QString s = QString::fromLocal8Bit(buf);
-            ui->plainTextEdit->appendPlainText(s);
-        }
-}
-
-void mm_page::on_pushButton_4_released()
+//全部停止
+void mm_page::on_pushButton_2_released()
 {
-    if(!p1_state) return;
-    p1->kill();
-    p1_state = 0;
-
-    ui->label_61->setText("已暂停");
-    ui->label_61->setStyleSheet("QLabel {color : blue; }");
-}
-
-void mm_page::on_comboBox_3_currentTextChanged(const QString &arg1)
-{
-    p1_strategy = arg1;
+    tc1->suspend_trading();
+    tc2->suspend_trading();
+    tc3->suspend_trading();
 }
