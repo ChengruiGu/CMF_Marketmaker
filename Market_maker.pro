@@ -1,4 +1,4 @@
-QT       += core gui charts
+QT       += core gui charts sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -18,6 +18,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     account_login.cpp \
     bar.cpp \
+    db_controller.cpp \
     future_mm.cpp \
     login_dialog.cpp \
     main.cpp \
@@ -46,6 +47,7 @@ SOURCES += \
 HEADERS += \
     account_login.h \
     bar.h \
+    db_controller.h \
     future_mm.h \
     login_dialog.h \
     mainwindow.h \

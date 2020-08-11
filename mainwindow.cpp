@@ -17,6 +17,7 @@
 #include "account_login.h"
 #include "welcome_page.h"
 #include "setting_riskctrlfold.h"
+#include "db_controller.h"
 
 #include <QtWidgets>
 #include <QDir>
@@ -34,7 +35,7 @@ MainWindow::MainWindow(QWidget *parent)
     setCentralWidget(pagesWidget);
     this->showMaximized();
 
-    //欢迎页
+    //欢迎页 不兼容mm_page暂时不能用
 //    welcome_page *wp = new welcome_page;
 //    pagesWidget->addTab(wp,0);
 //    pagesWidget->setCurrentIndex(0);

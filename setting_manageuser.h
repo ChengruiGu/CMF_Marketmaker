@@ -2,6 +2,8 @@
 #define SETTING_MANAGEUSER_H
 
 #include <QWidget>
+#include "db_controller.h"
+#include <QtSql>
 
 namespace Ui {
 class setting_manageuser;
@@ -22,6 +24,7 @@ private slots:
 
 private:
     Ui::setting_manageuser *ui;
+    QSqlRelationalTableModel *model;
 };
 
 #endif // SETTING_MANAGEUSER_H
