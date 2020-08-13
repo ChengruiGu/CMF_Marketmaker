@@ -13,15 +13,12 @@ setting_manageuser::setting_manageuser(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    //QStandardItemModel* model = new QStandardItemModel(this);
-
-    QSqlDatabase db = createDB();
-    createAllTables(db);
+    QSqlDatabase db = QSqlDatabase::database();
 
     //model连接数据库
     model = new QSqlRelationalTableModel(this, db);
     model->setTable("users");
-    model->setEditStrategy(QSqlTableModel::OnRowChange);
+    model->setEditStrategy(QSqlTableModel::OnManualSubmit);
     //输入数据库数据
     model->select();
 
@@ -32,8 +29,6 @@ setting_manageuser::setting_manageuser(QWidget *parent) :
     model->setHeaderData(3,Qt::Horizontal, "电话");
     model->setHeaderData(4,Qt::Horizontal, "邮箱");
     model->setHeaderData(5,Qt::Horizontal, "创建时间");
-
-
 
     //model连接view, 显示数据, 调整显示拉伸
     ui->tableView->setModel(model);

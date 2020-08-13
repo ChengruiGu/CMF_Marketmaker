@@ -78,3 +78,8 @@ void mm_page::on_pushButton_2_released()
     tc2->suspend_trading();
     tc3->suspend_trading();
 }
+
+void mm_page::on_mm_page_destroyed()
+{
+    on_pushButton_2_released();
+}

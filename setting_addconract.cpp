@@ -14,7 +14,7 @@ setting_addconract::setting_addconract(QWidget *parent) :
     model->setItem(1, 0, new QStandardItem("CU2008"));
     model->setItem(2, 0, new QStandardItem("AU2010"));
     model->setItem(3, 0, new QStandardItem("IH2009"));
-    ui->listView->setModel(model);
+    ui->tableView->setModel(model);
 }
 
 setting_addconract::~setting_addconract()

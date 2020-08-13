@@ -19,9 +19,6 @@ setting_createRole::~setting_createRole()
     delete ui;
 }
 
-//void setting_createRole::setModel(QSqlRelationalTableModel &m){
-//    model = m;
-//}
 
 void setting_createRole::on_pushButton_released()
 {

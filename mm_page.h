@@ -34,6 +34,8 @@ private slots:
 
     void on_pushButton_2_released();
 
+    void on_mm_page_destroyed();
+
 private:
     Ui::mm_page *ui;
 //    QProcess *p1;

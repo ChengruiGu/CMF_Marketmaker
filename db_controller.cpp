@@ -25,15 +25,24 @@ bool createAllTables(QSqlDatabase db){
     }
 
     QSqlQuery sql_query;
+
+    //用户表users
     //sql_query.exec("drop table users");
     QString create_sql =
-            "CREATE TABLE IF NOT EXISTS users (username TEXT PRIMARY KEY, name TEXT, role TEXT, phone TEXT, email TEXT, date TEXT, password TEXT)";
+            "CREATE TABLE IF NOT EXISTS users (username TEXT PRIMARY KEY, name TEXT, role TEXT, "
+            "phone TEXT, email TEXT, date TEXT, password TEXT)";
     sql_query.exec(create_sql);
     if(!sql_query.isActive()) return false;
-
     sql_query.exec("INSERT INTO users VALUES('cg487', '顾成睿', 'IT', '13570808796', 'cg487@cornell.edu', '2020-08-11', '0000')");
-
     //db.close();
+
+    //futures期货品种表，options期权品种表
+    create_sql =
+            "CREATE TABLE IF NOT EXISTS futures (name TEXT, code TEXT PRIMARY KEY, exchange TEXT, "
+            "category TEXT, multiplier INT, mpf REAL)";
+    sql_query.exec(create_sql);
+    if(!sql_query.isActive()) return false;
+    sql_query.exec("INSERT INTO futures VALUES('铜', 'cu', '上期所', '基本金属类', 5, 10.0)");
 
     return true;
 }

@@ -40,6 +40,11 @@ MainWindow::MainWindow(QWidget *parent)
 //    pagesWidget->addTab(wp,0);
 //    pagesWidget->setCurrentIndex(0);
 
+    //数据库初始化
+    QSqlDatabase db = createDB();
+    createAllTables(db);
+
+
     // 底部状态栏 显示账户信息
     QPushButton *acnt_login = new QPushButton;
     acnt_login->setText("登录交易账户");
@@ -168,6 +173,8 @@ void MainWindow::closeMyTab(int i){
     pagesWidget->removeTab(i);
 }
 
+//资源占用参考https://blog.csdn.net/qq_27905767/article/details/88635420
+//TODO:把show()都改成exec()
 void MainWindow::login_tradeAcnt(){
     account_login *al = new account_login;
     al->show();
@@ -181,7 +188,7 @@ void MainWindow::createRole(){
 
 void MainWindow::chooseProduct(){
     setting_chooseProduct *cp = new setting_chooseProduct;
-    cp->show();
+    cp->exec();
 }
 
 void MainWindow::setMm(){
