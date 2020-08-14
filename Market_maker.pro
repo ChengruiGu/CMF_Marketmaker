@@ -18,6 +18,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     account_login.cpp \
     bar.cpp \
+    ctp_login.cpp \
     db_controller.cpp \
     future_mm.cpp \
     login_dialog.cpp \

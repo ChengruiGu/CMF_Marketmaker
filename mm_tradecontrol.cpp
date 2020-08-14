@@ -1,6 +1,10 @@
 #include "mm_tradecontrol.h"
 #include "ui_mm_tradecontrol.h"
 
+/*
+ * 策略交易控件，在mm_page中加载
+ *
+ */
 mm_tradecontrol::mm_tradecontrol(QPlainTextEdit *output, QStringList s_List,QWidget *parent) :
     QWidget(parent),
     ui(new Ui::mm_tradecontrol)
@@ -29,6 +33,7 @@ void mm_tradecontrol::on_comboBox_currentTextChanged(const QString &arg1)
 void mm_tradecontrol::on_pushButton_2_released()
 {
     if(proc_state) return; //只允许一个进程处于运行中
+    if(proc_strategy.isEmpty()) return;
 
     //创建进程
        QString program = "./strategies/";
@@ -78,10 +83,12 @@ void mm_tradecontrol::refreshStrategyList(){
     }
 }
 
+//给上层mm_page保留的public方法 用来全部启动
 void mm_tradecontrol::start_trading(){
     on_pushButton_2_released();
 }
 
+//给上层mm_page保留的public方法 用来全部暂停
 void mm_tradecontrol::suspend_trading(){
     on_pushButton_3_released();
 }

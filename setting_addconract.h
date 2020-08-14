@@ -2,6 +2,7 @@
 #define SETTING_ADDCONRACT_H
 
 #include <QDialog>
+#include <QtSql>
 
 namespace Ui {
 class setting_addconract;
@@ -17,6 +18,7 @@ public:
 
 private:
     Ui::setting_addconract *ui;
+    QSqlRelationalTableModel *model;
 };
 
 #endif // SETTING_ADDCONRACT_H

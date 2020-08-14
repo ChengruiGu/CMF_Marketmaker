@@ -72,15 +72,15 @@ void setting_chooseProduct::on_pushButton_released()
     }
 
     QSqlRecord record;
-    record.append(QSqlField("name"));
-    record.append(QSqlField("code"));
+    record.append(QSqlField("future_name"));
+    record.append(QSqlField("future_code"));
     record.append(QSqlField("exchange"));
     record.append(QSqlField("category"));
     record.append(QSqlField("multiplier"));
     record.append(QSqlField("mpf"));
 
-    record.setValue("name", name);
-    record.setValue("code", code);
+    record.setValue("future_name", name);
+    record.setValue("future_code", code);
     record.setValue("exchange", exchange);
     record.setValue("category", category);
     record.setValue("multiplier", multiplier.toInt());

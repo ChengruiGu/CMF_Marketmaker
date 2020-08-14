@@ -7,7 +7,7 @@ Login_Dialog::Login_Dialog(QWidget *parent) :
     ui(new Ui::Login_Dialog)
 {
     ui->setupUi(this);
-    this->setWindowTitle(QString::fromLocal8Bit("µÇÂ¼×öÊÐÏµÍ³"));
+    this->setWindowTitle(QString::fromLocal8Bit("ç™»å½•åšå¸‚ç³»ç»Ÿ"));
     ui->user_lineEdit->setFocus();
 }
 
@@ -21,15 +21,15 @@ void Login_Dialog::on_pushButton_released()
     QString user = ui->user_lineEdit->text();
     QString pwd = ui->pwd_lineEdit_2->text();
     if(user == "")
-            QMessageBox::warning(this,"", QString::fromLocal8Bit("ÓÃ»§Ãû²»ÄÜÎª¿Õ£¡"));
+            QMessageBox::warning(this,"", QString::fromLocal8Bit("ç”¨æˆ·åä¸èƒ½ä¸ºç©ºï¼"));
         else if(pwd == "")
-            QMessageBox::warning(this,"",QString::fromLocal8Bit("ÃÜÂë²»ÄÜÎª¿Õ£¡"));
+            QMessageBox::warning(this,"",QString::fromLocal8Bit("å¯†ç ä¸èƒ½ä¸ºç©ºï¼"));
     else{
         if(user == "cg" && pwd == "2020") {
             accept();
         }
         else {
-            QMessageBox::warning(this, QString::fromLocal8Bit("¾¯¸æ£¡"),QString::fromLocal8Bit("ÓÃ»§Ãû»òÃÜÂë´íÎó£¡"),QMessageBox::Yes);
+            QMessageBox::warning(this, QString::fromLocal8Bit("è­¦å‘Šï¼"),QString::fromLocal8Bit("ç”¨æˆ·åæˆ–å¯†ç é”™è¯¯ï¼"),QMessageBox::Yes);
             ui->user_lineEdit->clear();
             ui->pwd_lineEdit_2->clear();
 
