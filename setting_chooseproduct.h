@@ -4,6 +4,7 @@
 #include <QDialog>
 #include <QtSql>
 #include <QMessageBox>
+#include <QStandardItemModel>
 
 namespace Ui {
 class setting_chooseProduct;

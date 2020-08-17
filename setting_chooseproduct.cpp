@@ -108,9 +108,12 @@ void setting_chooseProduct::on_tableView_clicked(const QModelIndex &index)
 void setting_chooseProduct::on_pushButton_2_released()
 {
     if(row_to_delete != -1){
-        model->removeRow(row_to_delete);
-        model->submitAll();
-        model->select();
+        //qDebug() <<
+        (model->removeRow(row_to_delete));
+        //qDebug() <<
+        (model->submitAll());
+        //qDebug() <<
+        (model->select());
         row_to_delete = -1;
     }
 }

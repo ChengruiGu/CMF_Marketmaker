@@ -32,16 +32,49 @@ bool createAllTables(QSqlDatabase db){
     /*****************功能表functions***************/
     create_sql =
             "CREATE TABLE IF NOT EXISTS functions ("
-            "function_name TEXT"
+            "function_name TEXT PRIMARY KEY"
             ")";
     if(!sql_query.exec(create_sql)) qDebug() << sql_query.lastError();
+    sql_query.exec("INSERT INTO functions VALUES('用户管理')");
+    sql_query.exec("INSERT INTO functions VALUES('角色管理')");
+    sql_query.exec("INSERT INTO functions VALUES('品种设置')");
+    sql_query.exec("INSERT INTO functions VALUES('做市权限设置')");
+    sql_query.exec("INSERT INTO functions VALUES('风控设置')");
+    sql_query.exec("INSERT INTO functions VALUES('监控指标')");
+    sql_query.exec("INSERT INTO functions VALUES('合约管理')");
+    sql_query.exec("INSERT INTO functions VALUES('策略管理')");
+
+    //密码修改：因为所有角色都应有这个功能，所以不放在表格里
 
     /**************角色表roles************************/
     create_sql =
             "CREATE TABLE IF NOT EXISTS roles ("
-            "role_name TEXT"
+            "role_name TEXT PRIMARY KEY"
             ")";
     if(!sql_query.exec(create_sql)) qDebug() << sql_query.lastError();
+    sql_query.exec("INSERT INTO roles VALUES('管理员')");
+    sql_query.exec("INSERT INTO roles VALUES('交易员')");
+    sql_query.exec("INSERT INTO roles VALUES('风控员')");
+    sql_query.exec("INSERT INTO roles VALUES('IT')");
+
+    /******************权限表privileges (role_name * function)****************************/
+//    "FOREIGN KEY(role_name) REFERENCES roles(role_name),"
+//    "FOREIGN KEY(function_name) REFERENCES functions(function_name),"
+
+    sql_query.exec("drop table privileges");
+    create_sql =
+            "CREATE TABLE IF NOT EXISTS privileges ("
+            "role_name TEXT,"
+            "function_name TEXT,"
+            "PRIMARY KEY (role_name, function_name)"
+            ")";
+    if(!sql_query.exec(create_sql)) qDebug() << sql_query.lastError();
+    if(!sql_query.exec("INSERT INTO privileges VALUES('管理员', '用户管理')")) qDebug() << sql_query.lastError();
+    if(!sql_query.exec("INSERT INTO privileges VALUES('交易员', '监控指标')")) qDebug() << sql_query.lastError();
+    if(!sql_query.exec("INSERT INTO privileges VALUES('风控员', '风控设置')")) qDebug() << sql_query.lastError();
+
+
+
 
     /****************用户表users*******************/
     //sql_query.exec("drop table users");
@@ -55,8 +88,8 @@ bool createAllTables(QSqlDatabase db){
             "date TEXT,"
             "password TEXT"
             ")";
-    sql_query.exec(create_sql);
-    if(!sql_query.isActive()) return false;
+
+    if(!sql_query.exec(create_sql)) qDebug() << sql_query.lastError();
     sql_query.exec("INSERT INTO users VALUES("
                    "'cg487',"
                    "'顾成睿',"
@@ -66,10 +99,10 @@ bool createAllTables(QSqlDatabase db){
                    "'2020-08-11',"
                    "'0000'"
                    ")");
-    //db.close();
+
 
     /**************futures期货品种表*****************/
-    //sql_query.exec("drop table futures");
+    sql_query.exec("drop table futures");
     create_sql =
             "CREATE TABLE IF NOT EXISTS futures ("
             "future_name TEXT,"
@@ -77,10 +110,10 @@ bool createAllTables(QSqlDatabase db){
             "exchange TEXT,"
             "category TEXT,"
             "multiplier INT,"
-            "mpf REAL"
+            "mpf FLOAT"
             ")";
-    sql_query.exec(create_sql);
-    if(!sql_query.isActive()) return false;
+
+    if(!sql_query.exec(create_sql)) qDebug() << sql_query.lastError();
     sql_query.exec("INSERT INTO futures VALUES("
                    "'铜',"
                    "'cu',"
@@ -93,18 +126,18 @@ bool createAllTables(QSqlDatabase db){
     /****************options期权品种表***************/
 
     /*****************合约表contracts***********************/
-    //sql_query.exec("drop table future_contracts");
+    sql_query.exec("drop table future_contracts");
     create_sql =
             "CREATE TABLE IF NOT EXISTS future_contracts("
             "contract_code TEXT PRIMARY KEY, "
             "future_code TEXT,"
             "exchange TEXT,"
-            "FOREIGN KEY(future_code) REFERENCES futures(future_code)"
+            "FOREIGN KEY(future_code) REFERENCES futures(future_code) ON DELETE CASCADE"
             ")";
     //声明foreignkey之前 要先创建这个Key
+    //ON DELETE CASCADE 使得删除品种时对应的合约会自动删除
 
     if(!sql_query.exec(create_sql)) qDebug() << sql_query.lastError(); //数据库debug语句
-    if(!sql_query.isActive()) qWarning("shit happens");
     sql_query.exec("INSERT INTO future_contracts VALUES("
                    "'cu2009', "
                    "'cu', "
@@ -115,8 +148,6 @@ bool createAllTables(QSqlDatabase db){
                    "'cu', "
                    "'上期所'"
                    ")");
-
-
 
     return true;
 }
