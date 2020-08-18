@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>product_source.txt</file>
+    </qresource>
+</RCC>

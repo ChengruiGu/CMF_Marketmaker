@@ -43,6 +43,6 @@ void ctp_login(){
 //    sh.ReqQryInvestorPosition();//查询持仓
 //    Sleep(1000);
 
-    //return
+//    return;
 }
 

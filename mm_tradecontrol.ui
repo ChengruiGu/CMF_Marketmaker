@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>596</width>
+    <width>632</width>
     <height>61</height>
    </rect>
   </property>
@@ -64,11 +64,14 @@
        <widget class="QComboBox" name="comboBox"/>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QLabel" name="label_6">
         <property name="text">
-         <string>参数设置</string>
+         <string>参数：</string>
         </property>
        </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="comboBox_2"/>
       </item>
       <item>
        <spacer name="horizontalSpacer_2">

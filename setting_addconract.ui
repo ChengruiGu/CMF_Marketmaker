@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>493</width>
+    <width>478</width>
     <height>202</height>
    </rect>
   </property>
@@ -75,6 +75,12 @@
        </item>
        <item>
         <widget class="QComboBox" name="comboBox_2">
+         <property name="sizeAdjustPolicy">
+          <enum>QComboBox::AdjustToMinimumContentsLength</enum>
+         </property>
+         <property name="minimumContentsLength">
+          <number>8</number>
+         </property>
          <item>
           <property name="text">
            <string>铜</string>
@@ -126,19 +132,6 @@
           </property>
          </item>
         </widget>
-       </item>
-       <item>
-        <spacer name="horizontalSpacer">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
        </item>
       </layout>
      </item>

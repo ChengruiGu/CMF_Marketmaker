@@ -132,6 +132,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(this->ui->actionhongzao,&QAction::triggered,this,&MainWindow::setFuturePage);
 
     //大商所
+    //TODO:顶部菜单栏连接所有商品
+
 
     // 期权页关联
     connect(this->ui->actiontong_op,&QAction::triggered,this,&MainWindow::setOptionPage);
@@ -174,7 +176,7 @@ void MainWindow::closeMyTab(int i){
 }
 
 //资源占用参考https://blog.csdn.net/qq_27905767/article/details/88635420
-//TODO:把show()都改成exec()
+//TODO:解决资源占用问题 暂时对性能影响较小
 void MainWindow::login_tradeAcnt(){
     account_login *al = new account_login;
     al->show();
@@ -193,7 +195,7 @@ void MainWindow::chooseProduct(){
 
 void MainWindow::setMm(){
     setting_setmm *sm = new setting_setmm;
-    sm->show();
+    sm->exec();
 }
 
 void MainWindow::riskControl(){
@@ -203,22 +205,22 @@ void MainWindow::riskControl(){
 
 void MainWindow::changePwd(){
     setting_changepwd *cp = new setting_changepwd;
-    cp->show();
+    cp->exec();
 }
 
 void MainWindow::riskParameter(){
     setting_riskprmt *rp = new setting_riskprmt;
-    rp->show();
+    rp->exec();
 }
 
 void MainWindow::setRole(){
     setting_setrole *sr = new setting_setrole;
-    sr->show();
+    sr->exec();
 }
 
 void MainWindow::setContract(){
     setting_addconract *ac = new setting_addconract;
-    ac->show();
+    ac->exec();
 }
 
 void MainWindow::addStrategy(){

@@ -55,3 +55,24 @@ void setting_manageuser::on_pushButton_released()
     cr->exec();
     model->select(); //刷新页面
 }
+
+/*删除用户*/
+void setting_manageuser::on_pushButton_3_released()
+{
+    if(row_to_delete != -1){
+        //qDebug() <<
+        (model->removeRow(row_to_delete));
+        //qDebug() <<
+        (model->submitAll());
+        //qDebug() <<
+        (model->select());
+        row_to_delete = -1;
+    }
+}
+
+/*点击选中*/
+void setting_manageuser::on_tableView_clicked(const QModelIndex &index)
+{
+    int row = index.row();
+    row_to_delete = row;
+}

@@ -22,9 +22,14 @@ private slots:
 
     void on_pushButton_released();
 
+    void on_pushButton_3_released();
+
+    void on_tableView_clicked(const QModelIndex &index);
+
 private:
     Ui::setting_manageuser *ui;
     QSqlRelationalTableModel *model;
+    int row_to_delete = -1;
 };
 
 #endif // SETTING_MANAGEUSER_H

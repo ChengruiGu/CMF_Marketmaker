@@ -148,6 +148,11 @@
             <string>农产品类</string>
            </property>
           </item>
+          <item>
+           <property name="text">
+            <string>金融类</string>
+           </property>
+          </item>
          </widget>
         </item>
        </layout>

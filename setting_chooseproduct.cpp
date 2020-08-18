@@ -84,7 +84,7 @@ void setting_chooseProduct::on_pushButton_released()
     record.setValue("exchange", exchange);
     record.setValue("category", category);
     record.setValue("multiplier", multiplier.toInt());
-    record.setValue("mpf", mpf.toFloat());
+    record.setValue("mpf", mpf);
 
     model->insertRecord(-1, record); //插入record
     model->submitAll(); //跟数据库同步

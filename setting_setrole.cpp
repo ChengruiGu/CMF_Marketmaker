@@ -24,9 +24,11 @@ setting_setrole::setting_setrole(QWidget *parent) :
     role_vec.push_back("IT");
 
     ui->listView->setModel(model);
-    ui->listView->setCurrentIndex(model->index(0,0)); //默认选中第一项
+    ui->listView->setCurrentIndex(model->index(0,0)); //默认选中角色第一项
+
     current = 0;
 
+    //设置checkboxes map
     checkboxes["用户管理"] = ui->checkBox;
     checkboxes["角色管理"] = ui->checkBox_2;
     checkboxes["品种设置"] = ui->checkBox_3;
@@ -36,6 +38,7 @@ setting_setrole::setting_setrole(QWidget *parent) :
     checkboxes["合约管理"] = ui->checkBox_7;
     checkboxes["策略管理"] = ui->checkBox_8;
 
+    on_listView_clicked(model->index(0,0)); //默认显示角色第一项权限
 }
 
 setting_setrole::~setting_setrole()
@@ -76,6 +79,7 @@ void setting_setrole::on_listView_clicked(const QModelIndex &index)
 
 }
 
+/*删除或添加权限*/
 void setting_setrole::on_pushButton_released()
 {
     QString role_name = role_vec[current];
@@ -89,12 +93,12 @@ void setting_setrole::on_pushButton_released()
     QSqlQuery query;
     QMap<QString, QCheckBox*>::const_iterator i = checkboxes.constBegin();
     while (i != checkboxes.constEnd()) {
-        if(i.value()->isChecked()){
+        if(i.value()->isChecked()){ //如果被打钩则添加权限
             query.prepare("INSERT INTO privileges VALUES(:role_name, :function_name)");
             query.bindValue(":role_name", role_name);
             query.bindValue(":function_name", i.value()->text());
             query.exec();
-        } else {
+        } else { //如果没被打钩则删除权限
             query.prepare("DELETE FROM privileges WHERE role_name = :role_name AND function_name = :function_name");
             query.bindValue(":role_name", role_name);
             query.bindValue(":function_name", i.value()->text());
