@@ -119,4 +119,5 @@ void setting_addconract::on_tableView_clicked(const QModelIndex &index)
     QSqlRecord record = model->record(row);
     ui->lineEdit->setText(record.value(0).toString());
     ui->comboBox->setCurrentText(record.value(2).toString());
+    ui->comboBox_2->setCurrentText(record.value(1).toString());
 }

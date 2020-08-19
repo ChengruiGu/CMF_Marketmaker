@@ -106,7 +106,7 @@ bool createAllTables(QSqlDatabase db){
                    ")");
 
 
-    /**************futures期货品种表*****************/
+    /************** futures 期货品种表 *****************/
     //sql_query.exec("drop table futures");
     create_sql =
             "CREATE TABLE IF NOT EXISTS futures ("
@@ -138,7 +138,7 @@ bool createAllTables(QSqlDatabase db){
     /****************options期权品种表***************/
     //期权部分暂未开发
 
-    /*****************合约表contracts***********************/
+    /***************** 期货合约表 future_contracts ***********************/
     //sql_query.exec("drop table future_contracts");
     create_sql =
             "CREATE TABLE IF NOT EXISTS future_contracts("
@@ -161,6 +161,32 @@ bool createAllTables(QSqlDatabase db){
                    "'cu', "
                    "'上期所'"
                    ")");
+
+    /********** 策略表 strategies ******************/
+    //sql_query.exec("drop table strategies");
+    create_sql =
+            "CREATE TABLE IF NOT EXISTS strategies("
+            "strategy_name TEXT PRIMARY KEY"
+            ")";
+    if(!sql_query.exec(create_sql)) qDebug() << sql_query.lastError(); //数据库debug语句
+    //sql_query.exec("INSERT INTO strategies VALUES('突破买入.exe')");
+
+    /********** 策略-合约表 strategy_contract ***************/
+    //sql_query.exec("drop table strategy_contracts");
+    create_sql =
+            "CREATE TABLE IF NOT EXISTS strategy_contracts("
+            "strategy_name TEXT, "
+            "contract_code TEXT,"
+            "FOREIGN KEY(strategy_name) REFERENCES strategies(strategy_name) ON DELETE CASCADE,"
+            "FOREIGN KEY(contract_code) REFERENCES future_contracts(contract_code) ON DELETE CASCADE,"
+            "PRIMARY KEY(strategy_name, contract_code)"
+            ")";
+    if(!sql_query.exec(create_sql)) qDebug() << sql_query.lastError(); //数据库debug语句
+    //sql_query.exec("INSERT INTO strategy_contracts VALUES('突破买入.exe', 'cu2009')");
+
+    /********** 参数表 parameters ******************/
+
+    /********** 参数-策略表 parameter-strategy ***************/
 
     return true;
 }
