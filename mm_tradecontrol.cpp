@@ -36,31 +36,32 @@ void mm_tradecontrol::on_pushButton_2_released()
     if(proc_strategy.isEmpty()) return;
 
     //创建进程
-       QString program = "./strategies/";
-       program.append(proc_strategy);
-       QDir strategyPath(program);
+    QString program = "./strategies/";
+    program.append(proc_strategy);
+    QDir strategyPath(program);
 
-       QStringList arguments;
+    //启动参数
+    QStringList arguments;
 
-       proc = new QProcess(this);
-       //connect要放在这里 不然会nullptr exception
-       connect(proc,&QProcess::readyReadStandardOutput,this,&mm_tradecontrol::on_proc_ReadStdOutput);
-       proc->start(strategyPath.absolutePath(), arguments);
-       proc_state = 1;
+    proc = new QProcess(this);
+    //connect要放在这里 不然会nullptr exception
+    connect(proc,&QProcess::readyReadStandardOutput,this,&mm_tradecontrol::on_proc_ReadStdOutput);
+    proc->start(strategyPath.absolutePath(), arguments);
+    proc_state = 1;
 
-       //运行状态标签
-       ui->label_3->setText("运行中");
-       ui->label_3->setStyleSheet("QLabel {color : red; }");
+    //运行状态标签
+    ui->label_3->setText("运行中");
+    ui->label_3->setStyleSheet("QLabel {color : red; }");
 }
 
-//读取输出
+//读取输出 每当进程输出到stdoutput上就会调用这个函数
 void mm_tradecontrol::on_proc_ReadStdOutput(){
     char buf[1024];
     qint64 lineLength = proc->readLine(buf, sizeof(buf));
-        if (lineLength != -1) {
-            QString s = QString::fromLocal8Bit(buf);
-            this->outside_display->appendPlainText(s); // thread safety???
-        }
+    if (lineLength != -1) {
+        QString s = QString::fromLocal8Bit(buf);
+        this->outside_display->appendPlainText(s); // thread safety???
+    }
 }
 
 //停止按钮
