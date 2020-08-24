@@ -15,7 +15,7 @@ class mm_tradecontrol : public QWidget
     Q_OBJECT
 
 public:
-    explicit mm_tradecontrol(QPlainTextEdit *output, QStringList s_List, QWidget *parent = nullptr);
+    explicit mm_tradecontrol(QString contract_code, QPlainTextEdit *output, QStringList s_List, QWidget *parent = nullptr);
     ~mm_tradecontrol();
     void refreshStrategyList();
     void start_trading(); //由全部启动按钮调用，默认tradecontrol已初始化

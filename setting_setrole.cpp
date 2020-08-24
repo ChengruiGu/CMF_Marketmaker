@@ -1,7 +1,7 @@
 #include "setting_setrole.h"
 #include "ui_setting_setrole.h"
 
-
+#include <QMessageBox>
 
 setting_setrole::setting_setrole(QWidget *parent) :
     QDialog(parent),
@@ -59,11 +59,6 @@ void setting_setrole::on_listView_clicked(const QModelIndex &index)
 {
     current = index.row(); //最新的点击对象序号
     QString role_name = role_vec[current]; //点击对象的角色名
-    QSqlDatabase db = QSqlDatabase::database(); //建立数据库链接
-    if (!db.open()) {
-        qWarning("cannot open db in setrole");
-        return;
-    }
 
     clear_checkboxes(); //清空checkboxes
 
@@ -84,9 +79,11 @@ void setting_setrole::on_pushButton_released()
 {
     QString role_name = role_vec[current];
 
-    QSqlDatabase db = QSqlDatabase::database(); //建立数据库链接
-    if (!db.open()) {
-        qWarning("cannot open db in setrole");
+    if(role_name == "管理员"){
+        QMessageBox msgBox;
+        msgBox.setText("管理员默认拥有所有权限，无法修改");
+        msgBox.exec();
+        on_listView_clicked(model->index(0,0));
         return;
     }
 

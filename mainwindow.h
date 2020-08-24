@@ -40,7 +40,7 @@ public slots:
 private:
     Ui::MainWindow *ui;
     QTabWidget *pagesWidget;
-    mm_page *future_page;
+    QString username;
 
 };
 #endif // MAINWINDOW_H

@@ -30,6 +30,7 @@ setting_uploadstrategy::setting_uploadstrategy(QWidget *parent) :
     //禁用编辑
     ui->tableView->setEditTriggers(QTableView::NoEditTriggers);
 
+    //创建checkboxes
     QSqlQuery sql_query;
     sql_query.exec("SELECT contract_code FROM future_contracts");
     while(sql_query.next()){
@@ -50,7 +51,8 @@ setting_uploadstrategy::~setting_uploadstrategy()
 /*上传文件按钮*/
 void setting_uploadstrategy::on_pushButton_released()
 {
-    QString file_name = QFileDialog::getOpenFileName(NULL,"标题","/","(*.exe)"); //QFileDialog是windows的上传文件界面，用法参考doc
+    QString file_name = QFileDialog::getOpenFileName(NULL,"标题","/","(*.exe)");
+    //QFileDialog是windows的上传文件界面，用法参考doc
     ui->label_2->setText(file_name);
 }
 

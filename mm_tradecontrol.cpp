@@ -3,13 +3,15 @@
 
 /*
  * 策略交易控件，在mm_page中加载
- *
+ * QPlainTextEdit *output: 策略运行时输出到的控件
+ * QStringList s_List：可运行的策略列表
  */
-mm_tradecontrol::mm_tradecontrol(QPlainTextEdit *output, QStringList s_List,QWidget *parent) :
+mm_tradecontrol::mm_tradecontrol(QString contract_code, QPlainTextEdit *output, QStringList s_List, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::mm_tradecontrol)
 {
     ui->setupUi(this);
+    ui->label_2->setText(contract_code);
     this->outside_display = output;
     this->strategyList = s_List;
     refreshStrategyList();
@@ -78,9 +80,8 @@ void mm_tradecontrol::on_pushButton_3_released()
 //刷新策略列表
 void mm_tradecontrol::refreshStrategyList(){
     ui->comboBox->clear();
-    for(int i = 2; i < strategyList.length(); ++i){
-        QDir strategyName(strategyList[i]);
-        ui->comboBox->addItem(strategyName.dirName());
+    for(int i = 0; i < strategyList.length(); ++i){
+        ui->comboBox->addItem(strategyList[i]);
     }
 }
 

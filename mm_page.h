@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QProcess>
+#include <QtSql>
 
 #include "mm_tradecontrol.h"
 
@@ -15,7 +16,7 @@ class mm_page : public QWidget
     Q_OBJECT
 
 public:
-    explicit mm_page(QWidget *parent = nullptr);
+    explicit mm_page(QString username, QWidget *parent = nullptr);
     ~mm_page();
     void setName(QString s);
     void setName1(QString s);
@@ -41,6 +42,10 @@ private:
 //    QProcess *p1;
 //    int p1_state = 0;
 //    QString p1_strategy;
+    QString username;
+    QVector<QString> contracts;
+    QVector<mm_tradecontrol *> trade_controls;
+
 
     mm_tradecontrol *tc1;
     mm_tradecontrol *tc2;

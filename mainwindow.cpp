@@ -31,7 +31,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     pagesWidget = new QTabWidget;
     pagesWidget->setTabsClosable(true);
-    future_page = new mm_page;
+
     setCentralWidget(pagesWidget);
     this->showMaximized();
 
@@ -157,7 +157,7 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::setFuturePage(){
-    mm_page *np = new mm_page;
+    mm_page *np = new mm_page("cg487");
     QAction *a = qobject_cast<QAction*>(sender());
     QString s = a->text();
     int idx = pagesWidget->addTab(np,s); //mm_page
@@ -168,7 +168,7 @@ void MainWindow::setFuturePage(){
 void MainWindow::setOptionPage(){
     QAction *a = qobject_cast<QAction*>(sender());
     QString s = a->text();
-    future_page->setName1(s);
+    //future_page->setName1(s);
 }
 
 void MainWindow::closeMyTab(int i){
@@ -189,11 +189,23 @@ void MainWindow::createRole(){
 
 
 void MainWindow::chooseProduct(){
+    if(pagesWidget->count()){
+        QMessageBox msgBox;
+        msgBox.setText("请先关闭所有交易页面！");
+        msgBox.exec();
+        return;
+    }
     setting_chooseProduct *cp = new setting_chooseProduct;
     cp->exec();
 }
 
 void MainWindow::setMm(){
+    if(pagesWidget->count()){
+        QMessageBox msgBox;
+        msgBox.setText("请先关闭所有交易页面！");
+        msgBox.exec();
+        return;
+    }
     setting_setmm *sm = new setting_setmm;
     sm->exec();
 }
@@ -214,20 +226,34 @@ void MainWindow::riskParameter(){
 }
 
 void MainWindow::setRole(){
+    if(pagesWidget->count()){
+        QMessageBox msgBox;
+        msgBox.setText("请先关闭所有交易页面！");
+        msgBox.exec();
+        return;
+    }
     setting_setrole *sr = new setting_setrole;
     sr->exec();
 }
 
 void MainWindow::setContract(){
+    if(pagesWidget->count()){
+        QMessageBox msgBox;
+        msgBox.setText("请先关闭所有交易页面！");
+        msgBox.exec();
+        return;
+    }
     setting_addconract *ac = new setting_addconract;
     ac->exec();
 }
 
 void MainWindow::addStrategy(){
+    if(pagesWidget->count()){
+        QMessageBox msgBox;
+        msgBox.setText("请先关闭所有交易页面！");
+        msgBox.exec();
+        return;
+    }
     setting_uploadstrategy *us = new setting_uploadstrategy;
     us->exec(); //exec() 会block, 除非关闭当前小窗口否则无法操作大窗口
-    for(int i = 0; i < pagesWidget->count(); ++i){
-        mm_page *mp = qobject_cast<mm_page*>(pagesWidget->widget(i)); //类型转换
-        mp->refreshStrategyList();
-    }
 }

@@ -6,11 +6,12 @@
 #include <QProcess>
 #include <QDir>
 
-mm_page::mm_page(QWidget *parent) :
+mm_page::mm_page(QString username, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::mm_page)
 {
     ui->setupUi(this);
+    this->username = username;
 
     //画右下方3个柱状图
     bar *b = new bar;
@@ -21,16 +22,47 @@ mm_page::mm_page(QWidget *parent) :
     ui->horizontalLayout_8->addWidget(b1);
     ui->horizontalLayout_8->addWidget(b2);
 
-    QDir strategyDir(QString("./strategies"));
-    QStringList strategyList = strategyDir.entryList();
 
-    //后续可以用一个vector管理所有tradecontrol，这里暂时先写死
-    tc1 = new mm_tradecontrol(ui->plainTextEdit, strategyList);
-    tc2 = new mm_tradecontrol(ui->plainTextEdit, strategyList);
-    tc3 = new mm_tradecontrol(ui->plainTextEdit, strategyList);
-    ui->verticalLayout_7->addWidget(tc1);
-    ui->verticalLayout_7->addWidget(tc2);
-    ui->verticalLayout_7->addWidget(tc3);
+    QSqlQuery sql_query;
+
+    sql_query.prepare("SELECT future_code FROM futures WHERE future_name = :future_name");
+    sql_query.bindValue(":future_name", ui->label_18->text());
+    if(!sql_query.exec()) qDebug() << sql_query.lastError();
+    QString future_code;
+    while(sql_query.next()){
+        future_code = sql_query.value(0).toString();
+    }
+
+    sql_query.prepare("SELECT user_contracts.contract_code "
+                      "FROM user_contracts "
+                      "WHERE user_contracts.username = :username "
+                      "AND user_contracts.contract_code IN "
+                      "(SELECT contract_code FROM future_contracts WHERE future_code = :future_code) "
+                      );
+    sql_query.bindValue(":username", this->username);
+    sql_query.bindValue(":future_code", future_code);
+
+    if(!sql_query.exec()) qDebug() << sql_query.lastError();
+
+    while(sql_query.next()){
+        QString contract_code = sql_query.value(0).toString();
+        contracts.push_back(contract_code);
+    }
+    QVector<QString>::const_iterator i = contracts.constBegin();
+    while(i != contracts.constEnd()){
+        sql_query.prepare("SELECT strategy_name FROM strategy_contracts WHERE contract_code = :contract_code");
+        sql_query.bindValue(":contract_code", *i);
+        sql_query.exec();
+        QStringList strategyList;
+        while(sql_query.next()){
+            QString strategy = sql_query.value(0).toString();
+            strategyList.push_back(strategy);
+        }
+        mm_tradecontrol *tc = new mm_tradecontrol(*i, ui->plainTextEdit, strategyList);
+        trade_controls.push_back(tc);
+        ui->verticalLayout_7->addWidget(tc);
+        ++i;
+    }
 
 }
 
@@ -50,33 +82,23 @@ void mm_page::setName1(QString s){
 }
 
 void mm_page::refreshStrategyList(){
-    //获取策略并显示在策略启动栏的combobox上
-    QDir strategyDir(QString("./strategies"));
-    QStringList strategyList = strategyDir.entryList();
-    tc1->strategyList = strategyList;
-    tc1->refreshStrategyList();
 
-    tc2->strategyList = strategyList;
-    tc2->refreshStrategyList();
-
-    tc3->strategyList = strategyList;
-    tc3->refreshStrategyList();
 }
 
 //全部启动
 void mm_page::on_pushButton_released()
 {
-    tc1->start_trading();
-    tc2->start_trading();
-    tc3->start_trading();
+    for(int i = 0; i < trade_controls.length(); ++i){
+        trade_controls[i]->start_trading();
+    }
 }
 
 //全部停止
 void mm_page::on_pushButton_2_released()
 {
-    tc1->suspend_trading();
-    tc2->suspend_trading();
-    tc3->suspend_trading();
+    for(int i = 0; i < trade_controls.length(); ++i){
+        trade_controls[i]->suspend_trading();
+    }
 }
 
 void mm_page::on_mm_page_destroyed()
