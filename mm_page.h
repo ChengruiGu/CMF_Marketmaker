@@ -16,7 +16,7 @@ class mm_page : public QWidget
     Q_OBJECT
 
 public:
-    explicit mm_page(QString username, QWidget *parent = nullptr);
+    explicit mm_page(QString username, QString future_name, QWidget *parent = nullptr);
     ~mm_page();
     void setName(QString s);
     void setName1(QString s);

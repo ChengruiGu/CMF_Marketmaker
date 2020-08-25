@@ -6,12 +6,13 @@
 #include <QProcess>
 #include <QDir>
 
-mm_page::mm_page(QString username, QWidget *parent) :
+mm_page::mm_page(QString username, QString future_name, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::mm_page)
 {
     ui->setupUi(this);
     this->username = username;
+    ui->label_18->setText(future_name);
 
     //画右下方3个柱状图
     bar *b = new bar;

@@ -69,7 +69,6 @@ bool createAllTables(QSqlDatabase db){
                    "'0000'"
                    ")");
 
-
     /************** futures 期货品种表 *****************/
     //sql_query.exec("drop table futures");
     create_sql =

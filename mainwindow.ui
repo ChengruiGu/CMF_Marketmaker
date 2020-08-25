@@ -44,12 +44,9 @@
      <addaction name="actionrejuan"/>
      <addaction name="actionbuxiugang"/>
      <addaction name="separator"/>
-     <addaction name="actionyuanyou"/>
-     <addaction name="actiondiliu"/>
      <addaction name="actionranliaoyou"/>
      <addaction name="actionliqing"/>
      <addaction name="actiontianjiao"/>
-     <addaction name="action20hao"/>
      <addaction name="actionzhijiang"/>
     </widget>
     <widget class="QMenu" name="menu_2">
@@ -469,7 +466,7 @@
   </action>
   <action name="actionguimeng">
    <property name="text">
-    <string>硅锰</string>
+    <string>锰硅</string>
    </property>
   </action>
   <action name="actionniaosu">
