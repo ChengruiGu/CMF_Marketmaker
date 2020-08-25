@@ -6,6 +6,9 @@
 #include <QProcess>
 #include <QDir>
 
+/* QString username: 用户名，用于查询用户的合约权限
+ * QString future_name: 期货品种名，用于查询对应品种的合约
+ */
 mm_page::mm_page(QString username, QString future_name, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::mm_page)
@@ -26,6 +29,7 @@ mm_page::mm_page(QString username, QString future_name, QWidget *parent) :
 
     QSqlQuery sql_query;
 
+    /* 通过期货名查询对应代码，比如铜对应cu */
     sql_query.prepare("SELECT future_code FROM futures WHERE future_name = :future_name");
     sql_query.bindValue(":future_name", ui->label_18->text());
     if(!sql_query.exec()) qDebug() << sql_query.lastError();
@@ -34,6 +38,7 @@ mm_page::mm_page(QString username, QString future_name, QWidget *parent) :
         future_code = sql_query.value(0).toString();
     }
 
+    /* 查询所有可交易的合约，满足：1.该用户有权交易 2.属于对应品种 */
     sql_query.prepare("SELECT user_contracts.contract_code "
                       "FROM user_contracts "
                       "WHERE user_contracts.username = :username "
@@ -42,15 +47,15 @@ mm_page::mm_page(QString username, QString future_name, QWidget *parent) :
                       );
     sql_query.bindValue(":username", this->username);
     sql_query.bindValue(":future_code", future_code);
-
     if(!sql_query.exec()) qDebug() << sql_query.lastError();
-
     while(sql_query.next()){
         QString contract_code = sql_query.value(0).toString();
         contracts.push_back(contract_code);
     }
+
     QVector<QString>::const_iterator i = contracts.constBegin();
     while(i != contracts.constEnd()){
+        /* 查询所有可交易合约对应的策略列表 */
         sql_query.prepare("SELECT strategy_name FROM strategy_contracts WHERE contract_code = :contract_code");
         sql_query.bindValue(":contract_code", *i);
         sql_query.exec();
@@ -59,11 +64,13 @@ mm_page::mm_page(QString username, QString future_name, QWidget *parent) :
             QString strategy = sql_query.value(0).toString();
             strategyList.push_back(strategy);
         }
+        /* 为每个可交易合约创建mm_tradecontrol */
         mm_tradecontrol *tc = new mm_tradecontrol(*i, ui->plainTextEdit, strategyList);
         trade_controls.push_back(tc);
         ui->verticalLayout_7->addWidget(tc);
         ++i;
     }
+
 
 }
 
@@ -82,9 +89,7 @@ void mm_page::setName1(QString s){
     ui->label_56->setText("期权");
 }
 
-void mm_page::refreshStrategyList(){
 
-}
 
 //全部启动
 void mm_page::on_pushButton_released()

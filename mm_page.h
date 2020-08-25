@@ -20,17 +20,8 @@ public:
     ~mm_page();
     void setName(QString s);
     void setName1(QString s);
-    void refreshStrategyList();
 
 private slots:
-//    void on_pushButton_3_released();
-//    void on_p1_started();
-//    void on_p1_ReadStdOutput();
-
-//    void on_pushButton_4_released();
-
-//    void on_comboBox_3_currentTextChanged(const QString &arg1);
-
     void on_pushButton_released();
 
     void on_pushButton_2_released();
@@ -39,19 +30,10 @@ private slots:
 
 private:
     Ui::mm_page *ui;
-//    QProcess *p1;
-//    int p1_state = 0;
-//    QString p1_strategy;
     QString username;
-    QVector<QString> contracts;
-    QVector<mm_tradecontrol *> trade_controls;
+    QVector<QString> contracts; //所有可交易合约
+    QVector<mm_tradecontrol *> trade_controls; //所有mm_tradecontrol
 
-
-    mm_tradecontrol *tc1;
-    mm_tradecontrol *tc2;
-    mm_tradecontrol *tc3;
-    mm_tradecontrol *tc4;
-    mm_tradecontrol *tc5;
 };
 
 #endif // MM_PAGE_H

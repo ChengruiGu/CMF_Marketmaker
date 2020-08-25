@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>311</width>
-    <height>243</height>
+    <width>330</width>
+    <height>285</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -38,10 +38,17 @@
         <string>权限</string>
        </property>
        <layout class="QGridLayout" name="gridLayout">
-        <item row="0" column="0">
-         <widget class="QCheckBox" name="checkBox">
+        <item row="2" column="0">
+         <widget class="QCheckBox" name="checkBox_3">
           <property name="text">
-           <string>用户管理</string>
+           <string>品种设置</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QCheckBox" name="checkBox_8">
+          <property name="text">
+           <string>策略管理</string>
           </property>
          </widget>
         </item>
@@ -59,17 +66,10 @@
           </property>
          </widget>
         </item>
-        <item row="1" column="1">
-         <widget class="QCheckBox" name="checkBox_6">
+        <item row="0" column="0">
+         <widget class="QCheckBox" name="checkBox">
           <property name="text">
-           <string>监控指标</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="0">
-         <widget class="QCheckBox" name="checkBox_3">
-          <property name="text">
-           <string>品种设置</string>
+           <string>用户管理</string>
           </property>
          </widget>
         </item>
@@ -87,10 +87,24 @@
           </property>
          </widget>
         </item>
-        <item row="3" column="1">
-         <widget class="QCheckBox" name="checkBox_8">
+        <item row="1" column="1">
+         <widget class="QCheckBox" name="checkBox_6">
           <property name="text">
-           <string>策略管理</string>
+           <string>监控指标</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QCheckBox" name="checkBox_9">
+          <property name="text">
+           <string>期货交易</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="1">
+         <widget class="QCheckBox" name="checkBox_10">
+          <property name="text">
+           <string>期权交易</string>
           </property>
          </widget>
         </item>

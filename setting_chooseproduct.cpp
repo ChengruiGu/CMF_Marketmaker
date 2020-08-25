@@ -12,10 +12,9 @@ setting_chooseProduct::setting_chooseProduct(QWidget *parent) :
 
     //model连接数据库
     model = new QSqlRelationalTableModel(this, db);
-    model->setTable("futures");
-    model->setEditStrategy(QSqlTableModel::OnManualSubmit);
-    //输入数据库数据
-    model->select();
+    model->setTable("futures"); //选择要读的表格
+    model->setEditStrategy(QSqlTableModel::OnManualSubmit); //当调用model->submitAll()时才同步数据库
+    model->select(); //从数据库中读取数据
 
     //改下标题
     model->setHeaderData(0,Qt::Horizontal, "品种名称");

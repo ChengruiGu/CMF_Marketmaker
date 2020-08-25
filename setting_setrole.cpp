@@ -37,6 +37,8 @@ setting_setrole::setting_setrole(QWidget *parent) :
     checkboxes["监控指标"] = ui->checkBox_6;
     checkboxes["合约管理"] = ui->checkBox_7;
     checkboxes["策略管理"] = ui->checkBox_8;
+    checkboxes["期货交易"] = ui->checkBox_9;
+    checkboxes["期权交易"] = ui->checkBox_10;
 
     on_listView_clicked(model->index(0,0)); //默认显示角色第一项权限
 }
@@ -54,6 +56,8 @@ setting_setrole::~setting_setrole()
 //checkBox_6   监控指标
 //checkBox_7   合约管理
 //checkBox_8   策略管理
+//checkBox_9   期货交易
+//checkBox_10  期权交易
 
 void setting_setrole::on_listView_clicked(const QModelIndex &index)
 {
@@ -106,12 +110,9 @@ void setting_setrole::on_pushButton_released()
 }
 
 void setting_setrole::clear_checkboxes(){
-    ui->checkBox->setChecked(false);
-    ui->checkBox_2->setChecked(false);
-    ui->checkBox_3->setChecked(false);
-    ui->checkBox_4->setChecked(false);
-    ui->checkBox_5->setChecked(false);
-    ui->checkBox_6->setChecked(false);
-    ui->checkBox_7->setChecked(false);
-    ui->checkBox_8->setChecked(false);
+    QMap<QString, QCheckBox*>::const_iterator i = checkboxes.constBegin();
+    while(i != checkboxes.constEnd()){
+        i.value()->setChecked(false);
+        ++i;
+    }
 }

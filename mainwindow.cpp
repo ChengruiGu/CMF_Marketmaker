@@ -190,6 +190,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+/* 添加期货页 */
 void MainWindow::setFuturePage(){
     QAction *a = qobject_cast<QAction*>(sender());
     QString s = a->text();
@@ -198,10 +199,10 @@ void MainWindow::setFuturePage(){
     pagesWidget->setCurrentIndex(idx);
 }
 
+/* 添加期权页(TODO) */
 void MainWindow::setOptionPage(){
-    QAction *a = qobject_cast<QAction*>(sender());
-    QString s = a->text();
-    //future_page->setName1(s);
+//    QAction *a = qobject_cast<QAction*>(sender());
+//    QString s = a->text();
 }
 
 void MainWindow::closeMyTab(int i){
@@ -215,12 +216,24 @@ void MainWindow::login_tradeAcnt(){
     al->show();
 }
 
+/* 交易页面和系统功能被设计成互斥的：假如有交易页面被打开，那么用户管理、策略管理等功能都不可用。
+ * 不这样做会带来很多问题，比如假如正在交易中的合约被删除该怎么办、正在交易中的品种被删除该怎么办
+ * 等等。互斥保证了交易系统的功能之间不会互相干扰。
+*/
+
+/* 用户管理 */
 void MainWindow::createRole(){
+    if(pagesWidget->count()){
+        QMessageBox msgBox;
+        msgBox.setText("请先关闭所有交易页面！");
+        msgBox.exec();
+        return;
+    }
     setting_manageuser *mu = new setting_manageuser;
     mu->show();
 }
 
-
+/* 品种管理 */
 void MainWindow::chooseProduct(){
     if(pagesWidget->count()){
         QMessageBox msgBox;
@@ -232,6 +245,7 @@ void MainWindow::chooseProduct(){
     cp->exec();
 }
 
+/* 做市权限管理 */
 void MainWindow::setMm(){
     if(pagesWidget->count()){
         QMessageBox msgBox;
@@ -243,21 +257,25 @@ void MainWindow::setMm(){
     sm->exec();
 }
 
+/* 风控管理 */
 void MainWindow::riskControl(){
     setting_riskctrlfold *rc = new setting_riskctrlfold;
     rc->show();
 }
 
+/* 修改密码 */
 void MainWindow::changePwd(){
     setting_changepwd *cp = new setting_changepwd;
     cp->exec();
 }
 
+/* 风控数据读取设置 */
 void MainWindow::riskParameter(){
     setting_riskprmt *rp = new setting_riskprmt;
     rp->exec();
 }
 
+/* 角色管理 */
 void MainWindow::setRole(){
     if(pagesWidget->count()){
         QMessageBox msgBox;
@@ -269,6 +287,7 @@ void MainWindow::setRole(){
     sr->exec();
 }
 
+/* 合约管理 */
 void MainWindow::setContract(){
     if(pagesWidget->count()){
         QMessageBox msgBox;
@@ -280,6 +299,7 @@ void MainWindow::setContract(){
     ac->exec();
 }
 
+/* 策略、参数管理 */
 void MainWindow::addStrategy(){
     if(pagesWidget->count()){
         QMessageBox msgBox;

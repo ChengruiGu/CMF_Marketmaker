@@ -321,7 +321,7 @@
   </action>
   <action name="actionluowen">
    <property name="text">
-    <string>螺纹</string>
+    <string>螺纹钢</string>
    </property>
   </action>
   <action name="actionxiancai">
@@ -331,7 +331,7 @@
   </action>
   <action name="actionrejuan">
    <property name="text">
-    <string>热卷</string>
+    <string>热轧卷板</string>
    </property>
   </action>
   <action name="actionbuxiugang">

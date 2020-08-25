@@ -11,8 +11,8 @@ QSqlDatabase createDB(){
 
     database = QSqlDatabase::addDatabase("QSQLITE");
     database.setDatabaseName("MarketMakerDB");
-    //setDatabaseName()的参数是数据库文件名。如果这个数据库不存在，则会在后续操作时自动创建
-    //如果已经存在，则后续的操作会在已有的数据库上进行。
+    /*setDatabaseName()的参数是数据库文件名。如果这个数据库不存在，则会在后续操作时自动创建
+     如果已经存在，则后续的操作会在已有的数据库上进行。*/
 
     return database;
 }
@@ -42,8 +42,15 @@ bool createAllTables(QSqlDatabase db){
             ")";
     if(!sql_query.exec(create_sql)) qDebug() << sql_query.lastError();
     sql_query.exec("INSERT INTO privileges VALUES('管理员', '用户管理')");
-    sql_query.exec("INSERT INTO privileges VALUES('交易员', '监控指标')");
-    sql_query.exec("INSERT INTO privileges VALUES('风控员', '风控设置')");
+    sql_query.exec("INSERT INTO privileges VALUES('管理员', '角色管理')");
+    sql_query.exec("INSERT INTO privileges VALUES('管理员', '品种设置')");
+    sql_query.exec("INSERT INTO privileges VALUES('管理员', '做市权限设置')");
+    sql_query.exec("INSERT INTO privileges VALUES('管理员', '风控设置')");
+    sql_query.exec("INSERT INTO privileges VALUES('管理员', '监控指标')");
+    sql_query.exec("INSERT INTO privileges VALUES('管理员', '合约管理')");
+    sql_query.exec("INSERT INTO privileges VALUES('管理员', '策略管理')");
+    sql_query.exec("INSERT INTO privileges VALUES('管理员', '期货交易')");
+    sql_query.exec("INSERT INTO privileges VALUES('管理员', '期权交易')");
 
     /****************用户表users*******************/
     //sql_query.exec("drop table users");
@@ -80,10 +87,11 @@ bool createAllTables(QSqlDatabase db){
             "multiplier INT,"
             "mpf TEXT"
             ")";
-    //  mpf应该是小数,但sqlite数据库有精度丢失的问题,0.02会变成0.1999999999999,无法解决
+    /* mpf应该是float型,但sqlite数据库有精度丢失的问题,0.02会变成0.1999999999999,无法解决,所以选择text型 */
     if(!sql_query.exec(create_sql)) qDebug() << sql_query.lastError();
 
-    //往项目中添加文件请点击resources.qrc 添加后文件路径前要加冒号
+    /*往项目中添加文件请点击resources.qrc 添加后文件路径前要加冒号 这里读取product_sources.txt中预先写好的sql语句
+      用来初始化品种表*/
     QFile file(":/product_source.txt");
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         qDebug() << "Cannot open file product_source.txt!";
@@ -108,10 +116,11 @@ bool createAllTables(QSqlDatabase db){
             "exchange TEXT,"
             "FOREIGN KEY(future_code) REFERENCES futures(future_code) ON DELETE CASCADE"
             ")";
-    //声明foreignkey之前 要先创建这个Key
-    //ON DELETE CASCADE 使得删除品种时对应的合约会自动删除
 
-    if(!sql_query.exec(create_sql)) qDebug() << sql_query.lastError(); //数据库debug语句
+    /* 声明foreignkey之前 要先创建这个Key */
+    /* ON DELETE CASCADE 使得删除品种时对应的合约会自动删除 */
+
+    if(!sql_query.exec(create_sql)) qDebug() << sql_query.lastError(); /*数据库debug语句*/
     sql_query.exec("INSERT INTO future_contracts VALUES("
                    "'cu2009', "
                    "'cu', "
@@ -149,7 +158,7 @@ bool createAllTables(QSqlDatabase db){
     /********** 参数-策略表 parameter-strategies ***************/
 
     /********** 用户-合约表 user-contracts ******************/
-    //用户必须满足是交易员或管理员的条件
+    /* 用户必须满足是交易员或管理员的条件 */
     //sql_query.exec("drop table user_contracts");
     create_sql =
             "CREATE TABLE IF NOT EXISTS user_contracts("

@@ -42,13 +42,14 @@ void mm_tradecontrol::on_pushButton_2_released()
     program.append(proc_strategy);
     QDir strategyPath(program);
 
-    //启动参数
+    //TODO:启动参数
+    //参数文件会存放在parameters文件夹中
     QStringList arguments;
 
     proc = new QProcess(this);
     //connect要放在这里 不然会nullptr exception
     connect(proc,&QProcess::readyReadStandardOutput,this,&mm_tradecontrol::on_proc_ReadStdOutput);
-    proc->start(strategyPath.absolutePath(), arguments);
+    proc->start(strategyPath.absolutePath(), arguments); //启动进程，传入参数列表arguments
     proc_state = 1;
 
     //运行状态标签
