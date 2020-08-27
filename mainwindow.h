@@ -41,6 +41,10 @@ private:
     Ui::MainWindow *ui;
     QTabWidget *pagesWidget;
     QString username;
+    QWidget *default_widget;
+
+private slots:
+    void on_tab_close();
 
 };
 #endif // MAINWINDOW_H

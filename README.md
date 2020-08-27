@@ -1,7 +1,7 @@
 # CMF_Marketmaker
 
 基于Qt + Sqlite3实现的期货做市系统，功能包括用户注册、权限管理、多策略做市、风控设置等。
-
+***
 ### Qt
 Qt 是一套方便的C++库，封装了图形界面的绘制和众多C++原有的特性。
 
@@ -15,7 +15,7 @@ Qt入门请参照这一教程：http://c.biancheng.net/qt/ 看到第12节“第�
 3. QProcess等创建进程的方法
 
 记得按照教程安装MinGW编译器，Visual Studio自带的MSVC编译器可能无法识别汉字字符，非常麻烦
-
+***
 ### SQLite3
 需要开发者对sql语句有一定了解，能进行基础增删查改。教程参考：https://www.runoob.com/sqlite/sqlite-tutorial.html
 
@@ -36,31 +36,31 @@ sql执行失败的时候，.lastError()方法可以查看失败原因
 4. 期权交易、合约、权限等相关功能
 5. 上传参数、参数管理（应该基本跟策略管理setting_uploadstrategy.cpp代码一样）
 6. 策略运行时读取参数的接口（mm_tradecontrol.cpp中的TODO）
-
-### 各文件具体介绍
-#### mainWindow.cpp, mainWindow.h, mainWindow.ui
+***
+## 各文件具体介绍
+### mainWindow.cpp, mainWindow.h, mainWindow.ui
 这是系统的主界面，集成了所有功能，可以从mainWindow.cpp开始读代码，了解每个功能是怎么实现的
 
 编辑mainWindow的菜单栏action时可能无法直接输入中文，这时右侧黄色的编辑区中text里可以输中文
 
 请确保action的期货中文名称和数据库中（product_source.txt）的期货中文名称一致
 ***
-#### mm_page.cpp, mm_page.h, mm_page.ui
+### mm_page.cpp, mm_page.h, mm_page.ui
 系统的主交易页面，mainwindow中每当菜单被点击就会创建一个mm_page实例
 
 mm := market making
 ***
-#### dbcontrol.cpp, dbcontrol.h
+### dbcontrol.cpp, dbcontrol.h
 创建数据库的文件，在mainwindow创建时调用
 
 DB_ER_diagram.png 绘制了系统数据库中表格之间的关系，可以参考
 ***
-#### mm_tradecontrol.cpp, mm_tradecontrol.h, mm_tradecontrol.ui
+### mm_tradecontrol.cpp, mm_tradecontrol.h, mm_tradecontrol.ui
 交易进程运行控制，每个mm_tradecontrol对应一个合约的交易进程，可以启动、停止、选择策略、选择参数。
 
 在做市页面mm_page创建时会被创建，mm_page可以调用start_trading(),suspend_trading()来控制交易的启动和停止
 ***
-#### setting_chooseproduct.cpp/.h/.ui
+### setting_chooseproduct.cpp/.h/.ui
 以setting_开头的文件都是系统设置相关的功能，开发时有许多相似之处，这里以setting_chooseproduct品种管理为例子，详细介绍一下。
 
 setting系列的.ui文件一般都会有一个view对象，用来显示信息，chooseproduct.ui中用的是tableview，可以显示多列信息；如果只需要单列也可以使用listview。
@@ -70,3 +70,13 @@ setting系列的.ui文件一般都会有一个view对象，用来显示信息，
 对数据库进行增删改有两种方式。第一种是通过model进行操作，先修改model，再同步数据库，这样做不需要写sql语句；chooseproduct.cpp采用了这种写法。
 第二种则是直接使用sql语句对数据库进行操作，这样在没有model或者model不方便时仍可以操作；uploadstrategy.cpp采用了这种写法。
 ***
+### login_dialog.cpp/.h/.ui
+登录界面，在main.cpp中被调用（开发时为了方便调试可以直接在main里注释掉）
+***
+### mm_page2.cpp/.h/.ui
+期权交易页面 尚未开发
+***
+### bar.cpp
+交易页面右下角的柱状图
+***
+### setting_riskctrl

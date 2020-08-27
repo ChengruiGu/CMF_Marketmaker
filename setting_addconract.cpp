@@ -76,7 +76,7 @@ void setting_addconract::on_pushButton_released()
 {
     QString contract_code = ui->lineEdit->text();
     contract_code.replace(" ", "");
-    if(contract_code.isEmpty()){
+    if(contract_code.isEmpty() || ui->comboBox->currentText().isEmpty() || ui->comboBox_2->currentText().isEmpty()){
         QMessageBox msgBox;
         msgBox.setText("输入不能为空！");
         msgBox.exec();

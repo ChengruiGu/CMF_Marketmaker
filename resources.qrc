@@ -1,5 +1,7 @@
 <RCC>
     <qresource prefix="/">
         <file>product_source.txt</file>
+        <file>bubble_tea.jpg</file>
+        <file>e_tea.jpg</file>
     </qresource>
 </RCC>

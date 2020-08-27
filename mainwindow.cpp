@@ -29,16 +29,27 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     this->setWindowTitle("招证资本投资有限公司做市系统");
 
+    default_widget = new QWidget;
+    /* 这里用到了css 教程参考https://www.runoob.com/css/css-tutorial.html
+       一般直接搜索css + 想要的效果, 比如 css set background image 就能查到怎么设置背景图片*/
+    default_widget->setStyleSheet("background-image: url(:/e_tea.jpg);"
+                                  "background-repeat:no-repeat;"
+                                  "background-position:center;"
+                                  "background-color:rgb(255,255,255)");
+
+    setCentralWidget(default_widget);
+
     pagesWidget = new QTabWidget;
     pagesWidget->setTabsClosable(true);
 
-    setCentralWidget(pagesWidget);
+
+
     this->showMaximized();
 
     //欢迎页 不兼容mm_page暂时不能用
-//    welcome_page *wp = new welcome_page;
-//    pagesWidget->addTab(wp,0);
-//    pagesWidget->setCurrentIndex(0);
+    //    welcome_page *wp = new welcome_page;
+    //    pagesWidget->addTab(wp,0);
+    //    pagesWidget->setCurrentIndex(0);
 
     //数据库初始化
     QSqlDatabase db = createDB();
@@ -89,6 +100,15 @@ MainWindow::MainWindow(QWidget *parent)
 
     //设置策略文件夹
     QDir targetDir("./strategies");
+    if(!targetDir.exists()){    // 如果目标目录不存在，则进行创建
+        if(!targetDir.mkdir(targetDir.absolutePath())){
+            qWarning("Cannot create strategies folder!!!");
+            return;
+        }
+    }
+
+    //设置参数文件夹
+    QDir prmtDir("./parameters");
     if(!targetDir.exists()){    // 如果目标目录不存在，则进行创建
         if(!targetDir.mkdir(targetDir.absolutePath())){
             qWarning("Cannot create strategies folder!!!");
@@ -183,6 +203,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(this->ui->actiontjhy,&QAction::triggered,this,&MainWindow::setContract);
     connect(this->ui->actionsccl,&QAction::triggered,this,&MainWindow::addStrategy);
     connect(this->ui->actionfksz,&QAction::triggered,this,&MainWindow::riskControl);
+    connect(this->pagesWidget,&QTabWidget::tabCloseRequested,this,&MainWindow::on_tab_close);
 }
 
 MainWindow::~MainWindow()
@@ -192,17 +213,21 @@ MainWindow::~MainWindow()
 
 /* 添加期货页 */
 void MainWindow::setFuturePage(){
+    if(pagesWidget->count()==0){ //保存先前页面，防止setCentralWidget把它删了
+        this->centralWidget()->setParent(0);
+        setCentralWidget(pagesWidget);
+    }
     QAction *a = qobject_cast<QAction*>(sender());
     QString s = a->text();
     mm_page *np = new mm_page("cg487", s);
-    int idx = pagesWidget->addTab(np,s); //mm_page    
+    int idx = pagesWidget->addTab(np,s); //mm_page
     pagesWidget->setCurrentIndex(idx);
 }
 
 /* 添加期权页(TODO) */
 void MainWindow::setOptionPage(){
-//    QAction *a = qobject_cast<QAction*>(sender());
-//    QString s = a->text();
+    //    QAction *a = qobject_cast<QAction*>(sender());
+    //    QString s = a->text();
 }
 
 void MainWindow::closeMyTab(int i){
@@ -309,4 +334,11 @@ void MainWindow::addStrategy(){
     }
     setting_uploadstrategy *us = new setting_uploadstrategy;
     us->exec(); //exec() 会block, 除非关闭当前小窗口否则无法操作大窗口
+}
+
+void MainWindow::on_tab_close(){
+    if(this->pagesWidget->count() == 0){
+        this->centralWidget()->setParent(0); //保存先前页面，防止setCentralWidget把它删了
+        setCentralWidget(default_widget);
+    }
 }

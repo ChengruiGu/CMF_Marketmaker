@@ -75,6 +75,7 @@ void setting_riskctrlfold::setzh(){
     ++v4;
     if(v4 & 1){
         zh->setVisible(true);
+
     } else {
         zh->setVisible(false);
     }
