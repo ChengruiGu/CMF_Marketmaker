@@ -38,6 +38,27 @@ sql执行失败的时候，.lastError()方法可以查看失败原因
 6. 策略运行时读取参数的接口（mm_tradecontrol.cpp中的TODO）
 ***
 ## 各文件具体介绍
+### account_login.cpp/.h.ui
+mainWindow下方状态栏的“登录交易账户”界面，目前登陆功能未实现
+***
+### bar.cpp
+交易页面右下角的柱状图
+***
+### ctp_login.cpp
+尝试在此处实现登录ctp交易账户，并返回账户信息，更新mainWindow状态栏
+***
+### dbcontroller.cpp, dbcontroller.h
+创建数据库的文件，在mainwindow创建时调用
+
+DB_ER_diagram.png 绘制了系统数据库中表格之间的关系，可以参考
+***
+### login_dialog.cpp/.h/.ui
+登录界面，在main.cpp中被调用（开发时为了方便调试可以直接在main里注释掉）
+***
+### main.cpp
+main函数
+去掉注释可以显示login窗口
+***
 ### mainWindow.cpp, mainWindow.h, mainWindow.ui
 这是系统的主界面，集成了所有功能，可以从mainWindow.cpp开始读代码，了解每个功能是怎么实现的
 
@@ -50,15 +71,20 @@ sql执行失败的时候，.lastError()方法可以查看失败原因
 
 mm := market making
 ***
-### dbcontrol.cpp, dbcontrol.h
-创建数据库的文件，在mainwindow创建时调用
-
-DB_ER_diagram.png 绘制了系统数据库中表格之间的关系，可以参考
+### mm_page2.cpp/.h/.ui
+期权交易页面 尚未开发
 ***
 ### mm_tradecontrol.cpp, mm_tradecontrol.h, mm_tradecontrol.ui
 交易进程运行控制，每个mm_tradecontrol对应一个合约的交易进程，可以启动、停止、选择策略、选择参数。
 
 在做市页面mm_page创建时会被创建，mm_page可以调用start_trading(),suspend_trading()来控制交易的启动和停止
+***
+### mm_addcontract.cpp/.h/.ui
+合约管理
+***
+### setting_changepwd.cpp/.h/ui
+修改密码，尚未实现功能。实现起来应该比较简单
+TODO: 连接数据库，查询对应username，改密码
 ***
 ### setting_chooseproduct.cpp/.h/.ui
 以setting_开头的文件都是系统设置相关的功能，开发时有许多相似之处，这里以setting_chooseproduct品种管理为例子，详细介绍一下。
@@ -70,13 +96,37 @@ setting系列的.ui文件一般都会有一个view对象，用来显示信息，
 对数据库进行增删改有两种方式。第一种是通过model进行操作，先修改model，再同步数据库，这样做不需要写sql语句；chooseproduct.cpp采用了这种写法。
 第二种则是直接使用sql语句对数据库进行操作，这样在没有model或者model不方便时仍可以操作；uploadstrategy.cpp采用了这种写法。
 ***
-### login_dialog.cpp/.h/.ui
-登录界面，在main.cpp中被调用（开发时为了方便调试可以直接在main里注释掉）
+### setting_createrole.cpp/.h/.ui
+创建用户，在setting_manageuser中调用
 ***
-### mm_page2.cpp/.h/.ui
-期权交易页面 尚未开发
+### setting_manageuser.cpp/.h/.ui
+角色管理
 ***
-### bar.cpp
-交易页面右下角的柱状图
+### setting_resetpwd.cpp/.h/.ui
+密码重置，在setting_manageuser中调用，尚未实现功能。做起来应该跟setting_changepwd差不多
 ***
-### setting_riskctrl
+### setting_riskprmt
+读取风控数据
+TODO:让读取的数据能显示在mm_page上
+***
+### setting_riskctrl category fold p product
+风控数据设置的5个文件。具体功能可参考.ui文件中设计的界面。
+
+TODO: setting_riskctrlfold 的缩放有些问题，再次点击按钮之后无法使窗口缩小；可能不该用setVisible()
+TODO: 风控的功能都尚未连接数据库，表格未设计
+***
+### setting_setmm.cpp/.h/.ui
+做市权限管理
+***
+### setting_setrole.cpp/.h/.ui
+角色权限管理
+***
+### setting_setmm.cpp/.h/.ui
+策略管理与参数管理。参数管理未实现功能，应该跟策略管理的部分高度相似
+***
+### twolabel.cpp/.h/.ui
+由两个label组成的简单控件，在mainWindow底部状态栏中调用
+***
+### welcomepage.cpp/.h/.ui
+欢迎页
+***
