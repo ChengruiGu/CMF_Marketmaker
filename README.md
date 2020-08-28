@@ -115,12 +115,14 @@ setting系列的.ui文件一般都会有一个view对象，用来显示信息，
 ***
 ### setting_riskprmt
 读取风控数据
+
 TODO:让读取的数据能显示在mm_page上
 ***
 ### setting_riskctrl category fold p product
 风控数据设置的5个文件。具体功能可参考.ui文件中设计的界面。
 
 TODO: setting_riskctrlfold 的缩放有些问题，再次点击按钮之后无法使窗口缩小；可能不该用setVisible()
+
 TODO: 风控的功能都尚未连接数据库，表格未设计
 ***
 ### setting_setmm.cpp/.h/.ui

@@ -27,7 +27,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    this->setWindowTitle("招证资本投资有限公司做市系统");
+    this->setWindowTitle("XX资本投资有限公司做市系统");
 
     default_widget = new QWidget;
     /* 这里用到了css 教程参考https://www.runoob.com/css/css-tutorial.html
