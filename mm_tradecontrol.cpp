@@ -1,5 +1,6 @@
 #include "mm_tradecontrol.h"
 #include "ui_mm_tradecontrol.h"
+#include <QtSql>
 
 /*
  * 策略交易控件，在mm_page中加载
@@ -28,6 +29,26 @@ void mm_tradecontrol::on_comboBox_currentTextChanged(const QString &arg1)
     if(!proc_state){ //仅在没有进程运行时才调整策略
         proc_strategy = arg1;
         ui->label_5->setText(proc_strategy);
+
+        QSqlQuery sql_query;
+
+        sql_query.prepare("SELECT parameter_name FROM parameter_strategies WHERE strategy_name = :strategy_name");
+        sql_query.bindValue(":strategy_name", arg1);
+
+        if(!sql_query.exec()) {
+            qDebug() << "Select failed!";
+            qDebug() << sql_query.lastError();
+            return;
+        }
+
+        ui->comboBox_2->clear();
+        QStringList name_list;
+
+        while(sql_query.next()){
+            QString future_name = sql_query.value(0).toString();
+            name_list << future_name;
+        }
+        ui->comboBox_2->addItems(name_list);
     }
 }
 
@@ -94,4 +115,13 @@ void mm_tradecontrol::start_trading(){
 //给上层mm_page保留的public方法 用来全部暂停
 void mm_tradecontrol::suspend_trading(){
     on_pushButton_3_released();
+}
+
+//选中参数
+void mm_tradecontrol::on_comboBox_2_currentIndexChanged(const QString &arg1)
+{
+    if(!proc_state){ //仅在没有进程运行时才调整策略
+        //proc_strategy = arg1;
+        ui->label_7->setText(proc_strategy);
+    }
 }

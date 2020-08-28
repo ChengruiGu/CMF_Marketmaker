@@ -28,13 +28,26 @@ private slots:
 
     void on_pushButton_6_released();
 
+    void on_tableView_2_clicked(const QModelIndex &index);
+
+    void on_pushButton_3_released();
+
+    void on_pushButton_4_released();
+
+    void on_pushButton_7_released();
+
+    void on_pushButton_8_released();
+
 private:
 void clear_checkboxes();
+void clear_checkboxes_2();
 
 private:
     Ui::setting_uploadstrategy *ui;
-    QMap<QString, QCheckBox*> contracts;
-    QSqlTableModel *model;
+    QMap<QString, QCheckBox*> contracts; //合约与对应checkbox
+    QSqlTableModel *model; //策略显示模型
+    QMap<QString, QCheckBox*> strategies; //策略与对应checkbox
+    QSqlTableModel *model_2; //参数显示模型
 };
 
 #endif // SETTING_UPLOADSTRATEGY_H

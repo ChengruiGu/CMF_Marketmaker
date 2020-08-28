@@ -34,6 +34,8 @@ private slots:
     void on_proc_ReadStdOutput();
 
 
+    void on_comboBox_2_currentIndexChanged(const QString &arg1);
+
 private:
     Ui::mm_tradecontrol *ui;
     QProcess *proc;

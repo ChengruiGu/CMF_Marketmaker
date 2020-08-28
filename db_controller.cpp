@@ -154,8 +154,24 @@ bool createAllTables(QSqlDatabase db){
     //sql_query.exec("INSERT INTO strategy_contracts VALUES('突破买入.exe', 'cu2009')");
 
     /********** 参数表 parameters ******************/
+    create_sql =
+            "CREATE TABLE IF NOT EXISTS parameters("
+            "parameter_name TEXT PRIMARY KEY"
+            ")";
+    if(!sql_query.exec(create_sql)) qDebug() << sql_query.lastError(); //数据库debug语句
 
     /********** 参数-策略表 parameter-strategies ***************/
+    //sql_query.exec("drop table strategy_contracts");
+    create_sql =
+            "CREATE TABLE IF NOT EXISTS parameter_strategies("
+            "parameter_name TEXT, "
+            "strategy_name TEXT,"
+            "FOREIGN KEY(strategy_name) REFERENCES strategies(strategy_name) ON DELETE CASCADE,"
+            "FOREIGN KEY(parameter_name) REFERENCES parameters(parameter_name) ON DELETE CASCADE,"
+            "PRIMARY KEY(parameter_name, strategy_name)"
+            ")";
+    if(!sql_query.exec(create_sql)) qDebug() << sql_query.lastError(); //数据库debug语句
+
 
     /********** 用户-合约表 user-contracts ******************/
     /* 用户必须满足是交易员或管理员的条件 */

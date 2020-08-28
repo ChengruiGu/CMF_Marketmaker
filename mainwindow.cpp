@@ -109,9 +109,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     //设置参数文件夹
     QDir prmtDir("./parameters");
-    if(!targetDir.exists()){    // 如果目标目录不存在，则进行创建
-        if(!targetDir.mkdir(targetDir.absolutePath())){
-            qWarning("Cannot create strategies folder!!!");
+    if(!prmtDir.exists()){    // 如果目标目录不存在，则进行创建
+        if(!prmtDir.mkdir(prmtDir.absolutePath())){
+            qWarning("Cannot create parameters folder!!!");
             return;
         }
     }
